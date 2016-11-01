@@ -1,0 +1,330 @@
+*:not(input, textarea) {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+textarea::-webkit-input-placeholder {
+    color: gray !important;
+}
+
+input::-webkit-input-placeholder {
+    color: gray !important;
+}
+
+input:-moz-placeholder {
+    color: #D6D0CA !important;
+    // Mozilla Firefox 4 to 18 
+}
+
+input::-moz-placeholder {
+    color: #D6D0CA !important;
+    // / Mozilla Firefox 19+ /
+}
+
+input:-ms-input-placeholder {
+    color: #D6D0CA !important;
+}
+
+select {
+    border: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+    display: inline-block;
+}
+
+select,
+input,
+textarea {
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+.grid {
+    .clearfix;
+    .grid-left {
+        width: 50%;
+        padding-right: 8px;
+        .box-sizing(border-box);
+        float: left;
+    }
+    .grid-right {
+        width: 50%;
+        padding-left: 8px;
+        .box-sizing(border-box);
+        float: left;
+    }
+}
+
+.booking-input {
+    position: relative;
+    margin-bottom: 15px;
+    &.required {
+        &:before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: inline-block;
+            width: 20px;
+            margin-top: -8px;
+            color: red;
+            text-align: center;
+        }
+    }
+    input {
+        padding: 15px;
+        width: 100%;
+        .box-sizing(border-box);
+        border: 1px solid fade(black, 30%);
+        border-radius: 6px;
+    }
+    .smsbtn {
+        display: inline-block;
+        padding: 15px;
+        font-size:13px;
+        width: 100%;
+        .box-sizing(border-box);
+        border-radius: 6px;
+        color: white;
+        text-align: center;
+        background-color: @brand-primary;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        .box-shadow(none);
+        border: 0;
+    }
+}
+
+.booking-select {
+    position: relative;
+    margin-bottom: 15px;
+    &.required {
+        &:before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: inline-block;
+            width: 20px;
+            margin-top: -8px;
+            color: red;
+            text-align: center;
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        margin-top: -5px;
+        display: inline-block;
+        border-top: 5px solid fade(black, 50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+    }
+    select {
+        padding: 15px;
+        width: 100%;
+        .box-sizing(border-box);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 1px solid fade(black, 30%);
+        border-radius: 6px;
+    }
+}
+
+.info {
+    padding: 20px 0 30px;
+    font-size: 16px;
+    text-center: center;
+}
+
+.doctor-item {
+    position: relative;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    .box-shadow(0 7px 0px -3px fade(black, 20%));
+    border: 1px solid fade(black, 30%);
+    border-radius: 6px;
+    .doctor-avatar {
+        // position: absolute;
+        // left: 15px;
+        // top:8px;
+        display: inline-block;
+        float: left;
+        width: 60px;
+        margin-right: 15px;
+    }
+    .doctor-meta {
+        .clearfix;
+        min-height: 74px;
+        margin-bottom: 8px;
+        .doctor-name {
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-style: bold;
+        }
+        .doctor-action {
+            position: absolute;
+            display: inline-block;
+            right: 15px;
+            top: 8px;
+            text-align: center;
+        }
+    }
+    .doctor-summary {
+        max-height: 59px;
+        overflow: hidden;
+        line-height: 1.5;
+        font-size: 13px;
+    }
+}
+
+// booking btn
+.booking-btn {
+    display: inline-block;
+    padding: 15px;
+    width: 100%;
+    .box-sizing(border-box);
+    color: white;
+    text-align: center;
+    background-color: @brand-primary;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    .box-shadow(none);
+    border: 0;
+}
+
+.doctor-case {
+    line-height: 1.5;
+    color: white;
+    .doctor-avatar {
+        display: inline-block;
+        height: 80px;
+        width: 80px;
+        background-color: white;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+}
+
+.tab {
+    .tab-item {
+        padding: 15px;
+        border-bottom: 3px solid fade(black, 10%);
+        &.active {
+            color: @brand-primary;
+            border-bottom: 3px solid @brand-primary;
+        }
+    }
+}
+
+.comments {
+    .comment {
+        padding: 8px 15px;
+        border-bottom: 1px solid fade(black, 17%);
+    }
+    .comment-name {
+        font-style: bold;
+        font-size: 20px;
+    }
+    .comment-avatar {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+}
+
+.comment-area {
+    padding: 8px;
+    margin: 15px auto;
+    width: 100%;
+    min-height: 150px;
+    border-radius: 6px;
+    .box-sizing(border-box);
+    border: 1px solid fade(black, 17%);
+}
+
+.line {
+    display: block;
+    height: 1px;
+    background-color: fade(black, 17%);
+}
+
+.order {
+    padding: 15px;
+    border-bottom: 1px solid fade(black, 17%);
+    span {
+        vertical-align: middle;
+    }
+    .btn {
+        min-width: 80px;
+    }
+    .order-action {
+        padding: 8px 0 0 0 0;
+        text-align: right !important;
+        .order-doctor-info {
+            text-align: left !important;
+        }
+    }
+    .order-avatar {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        border-radius: 100%;
+    }
+}
+.information{
+    padding:15px;
+    border-bottom: 1px solid fade(black, 17%);
+    .information-thumbnail {
+        width: 125px;
+        margin-right: 15px;
+        float: left;
+    }
+    .information-title {
+        font-size: 20px;
+    }
+    .information-summary {
+        height: 48px;
+        overflow: hidden;
+        color: fade(#2c3e50,50%);
+    }
+}
+.notfound {
+    display: block;
+    width: 150px;
+    margin: 35px auto;
+}
+// icon
+.checkbox {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-top: 0;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+    background-image: url("../images/uncheck.png");
+    &.active {
+        background-image: url("../images/check.png");
+    }
+}
