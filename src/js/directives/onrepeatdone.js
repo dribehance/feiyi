@@ -1,4 +1,4 @@
-angular.module("Uelives").directive('onRepeatDone', function() {
+angular.module("Feiyi").directive('onRepeatDone', function() {
 	return {
 		restrict: 'A',
 		link: function(scope, el, attr) {

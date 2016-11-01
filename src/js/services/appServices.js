@@ -1,6 +1,6 @@
  // by dribehance <dribehance.kksdapp.com>
  // EventHandle
- angular.module("Uelives").factory("appServices", function($rootScope, $window, $location, errorServices, toastServices, localStorageService, config) {
+ angular.module("Feiyi").factory("appServices", function($rootScope, $window, $location, errorServices, toastServices, localStorageService, config) {
  	var routeChangeStart = function(e) {
  		// do something white routechangestart,eg:
  		// toastServices.show();

@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $q, $window, localStorageService, config) {
+angular.module("Feiyi").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $q, $window, localStorageService, config) {
     // user agent
     var ua = $window.navigator.userAgent.toLowerCase();
     if (ua.indexOf("micromessenger") != -1) {

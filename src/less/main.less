@@ -50,1592 +50,281 @@ textarea {
     background-color: white;
 }
 
-// .input-height {
-//     line-height: 18px;
-//     height: 18px;
-//     vertical-align: middle;
-// }
-// .input-heigh {
-//     line-height: 167px;
-//     height: 17px;
-//     vertical-align: middle;
-// }
-.col-ms-7 {
-    width: 14.28%;
-}
-
-.col-ms-4 {
-    width: 25%;
-}
-
-.col-ms-3 {
-    width: 33%
-}
-
-.col-cx-3 {
-    width: 33.3333%
-}
-
-.col-ws-3 {
-    width: 32%
-}
-
-.col-ms-5 {
-    width: 39.5%
-}
-
-.col-ms-2 {
-    width: 50%
-}
-
-///*****************首页*******************/
-.input-group {
-    display: block;
-    border-radius: 6px;
-    overflow: hidden;
-    .input-item {
-        position: relative;
-        display: block;
-        background-color: white;
+.grid {
+    .clearfix;
+    .grid-left {
+        width: 50%;
+        padding-right: 8px;
         .box-sizing(border-box);
-        &.padding-right {
-            padding-right: 10px;
-        }
-        &.padding-lg-right {
-            padding-right: 100px;
-        }
-        &.padding-sm-left {
-            padding-left: 70px;
-        }
-        &.padding-xs-left {
-            padding-left: 40px;
-        }
-        &.padding {
-            padding: 0 10px;
-        }
-        &.margin-bottom {
-            margin-bottom: 15px;
-        }
-        &.modify {
-            border-bottom: 1px solid #BDBDBD;
-        }
-        &.margin-lg-bottom {
-            margin-bottom: 20px;
-        }
-        &.border-radius {
-            border-radius: 6px;
-        }
-        .addon {
-            position: absolute;
-            display: block;
-            top: 1px;
-            left: 5px;
-            padding: 15px 5px;
-            padding-right: 2px;
-        }
-        .text-modify {
-            display: block;
-            // padding-top: 15px;
-            // padding-bottom: 15px;
-            .box-sizing(border-box);
-            &.border-left {
-                border-left: 1px solid #BDBDBD;
-            }
-            &.modify {
-                border-bottom: 1px solid #EBEBEB;
-            }
-            &.padding {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-            &.padding-area {
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
-            &.font-big {
-                font-size: 18px;
-                font-weight: bold;
-            }
-            span {
-                color: #bdbdbd;
-                .font-modify {
-                    margin-right: 5px;
-                }
-            }
-            small {
-                color: #bdbdbd;
-            }
-            input {
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
-            .font-color {
-                color: #62C3DE;
-            }
-            .color-gray {
-                color: #000;
-            }
-            .highlight {
-                color: #000;
-            }
-        }
-        .sms-code {
-            position: absolute;
-            top: 6px;
-            right: 5px;
-            display: block;
-            padding: 10px 5px;
-            border: 1px solid #37B3D5;
-            border-radius: 4px;
-            font-size: 12px;
-            color: #37B3D5;
-        }
-        .color-primary {
-            border: 1px solid #BDBDBD;
-            color: #BDBDBD;
-        }
+        float: left;
     }
-    .item-title {
-        display: block;
-        margin-bottom: 15px;
-        a {
-            color: #79AAE3;
-        }
-    }
-    .item-tips{
-        display: block;
-        padding-left: 70px;
-        margin-bottom: 15px;
-        font-size: 15px;
-        color: #a9a7a7;
-        span{
-            position: relative;
-            top: 3px;
-        }
-        label{
-            font-size: 17px;
-        }
-    }
-}
-
-//注意
-.mind {
-    display: block;
-    overflow: hidden;
-    .mind-title {
-        display: block;
-        margin-bottom: 15px;
-    }
-    .mind-content {
-        display: block;
-        margin-bottom: 15px;
-    }
-}
-
-.justified {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    >* {
-        display: table-cell;
-        width: 1%;
-        float: none!important;
-    }
-}
-
-.other {
-    .other-title {
-        margin-bottom: 10px;
-    }
-    .other-content {
-        font-size: 12px;
-        padding-bottom: 2px;
-    }
-}
-
-///*****************涉及行业*******************/
-.industry {
-    display: block;
-    width: 100%;
-    padding: 10px 0 5px;
-    overflow: hidden;
-    background-color: white;
-    &.space {
-        margin-bottom: 50px;
-    }
-    .tags {
-        display: block;
-        padding: 3px;
+    .grid-right {
+        width: 50%;
+        padding-left: 8px;
         .box-sizing(border-box);
-        .tag {
-            display: block;
-            padding: 6px 2px;
-            text-align: center;
-            border: 1px solid #EBEBEB;
-            font-size: 13px;
-            .text-overflow();
-        }
-        .highlight {
-            border: 1px solid #00B5DA;
-            color: #00B4D6;
-        }
+        float: left;
     }
 }
 
-///**************re***译员级别*******************/
-.level {
+.booking-input {
     position: relative;
-    display: block;
-    background-color: white;
-    padding: 15px;
-    overflow: hidden;
-    .level-title {
-        position: relative;
-        display: block;
-        margin-bottom: 15px;
-        font-size: 16px;
-        .fa {
-            position: relative;
-            top: 2px;
-            font-size: 20px;
-            color: #00B4D6;
-        }
-    }
-    .level-content {
-        position: relative;
-        display: block;
-        padding-left: 45px;
-        margin-bottom: 15px;
-        color: #4e4a4a;
-        .fa {
-            position: absolute;
-            top: 3px;
-            left: 20px;
-            color: #00B4D6;
-            font-size: 12px;
-        }
-        input {
-            padding: 5px;
-            width: 30%;
-            border: 1px solid #BDBDBD;
-            border-radius: 4px;
-        }
-    }
-    .addon {
-        margin-bottom: 15px;
-    }
-}
-
-///*****************译员列表*******************/
-.tab {
-    display: block;
-    overflow: hidden;
-    .tab-item {
-        display: inline-block;
-        .box-sizing(border-box);
-        &.tab-modify {
-            border: 1px solid #BDBDBD;
-            border-top: none;
-            border-bottom: none;
-        }
-        &.xs-padding {
-            padding: 5px;
-        }
-        &.sm-padding {
-            padding: 5px 5px 10px 5px;
-        }
-        &.xs-width {
-            width: 32%;
-        }
-        &.sm-width {
-            width: 35%;
-        }
-    }
-    .highlight {
-        color: #00B4D6;
-        border-bottom: 1px solid #00B4D6;
-    }
-}
-
-.interpreter-list {
-    display: block;
-    overflow: hidden;
-    .list-center {
-        display: block;
-        padding: 10px;
-    }
-    .list-item {
-        position: relative;
-        display: block;
-        padding: 10px;
-        margin-bottom: 15px;
-        background-color: white;
-        border-radius: 6px;
-        .list-header {
-            display: block;
-            &.border-bottom-color {
-                border-bottom: 1px solid #EBEBEB;
-            }
-            .title {
-                display: block;
-                padding: 5px 0;
-                label {
-                    color: red;
-                }
-            }
-        }
-        .list-content-wrap {
-            position: relative;
-            display: block;
-            padding-top: 10px;
-            .list-content {
-                position: relative;
-                padding-left: 55px;
-                height: 55px;
-                display: block;
-                overflow: hidden;
-                cursor: pointer;
-                .avatar {
-                    position: absolute;
-                    display: block;
-                    top: 0;
-                    left: 0;
-                    height: 55px;
-                    width: 55px;
-                    border-radius: 6px;
-                    overflow: hidden;
-                    .box-sizing(border-box);
-                }
-                .list-info {
-                    display: block;
-                    overflow: hidden;
-                    font-size: 12px;
-                    .list-info-header {
-                        display: block;
-                        padding-top: 8px;
-                        margin-bottom: 15px;
-                        span {
-                            display: inline-block;
-                            padding: 0 5px;
-                        }
-                    }
-                    .list-info-content {
-                        display: block;
-                        white-space: nowrap;;
-                        span {
-                            display: inline-block;
-                            padding: 0 5px;
-                            &.modify {
-                                border: 1px solid #EBEBEB;
-                                border-top: none;
-                                border-bottom: none;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-///****************************在线预约************************/
-.booking {
-    display: block;
-    overflow: hidden;
     margin-bottom: 15px;
-    .booking-person {
-        position: relative;
-        display: block;
-        padding-bottom: 5px;
-        border-radius: 6px;
-        background-color: white;
-        .booking-header {
-            display: block;
-            padding: 0 45px;
-            span {
-                display: block;
-                padding: 10px 20px;
-                color: #62C3DE;
-                border-bottom: 1px solid #BDBDBD;
-            }
-        }
-        .booking-content {
-            position: relative;
-            display: block;
-            padding-top: 15px;
-            font-size: 15px;
-            overflow: hidden;
-            span {
-                position: relative;
-                top: -3px;
-            }
-            label {
-                color: #BDBDBD;
-            }
-        }
-        .booking-container {
-            position: relative;
-            display: block;
-            padding-top: 15px;
-            font-size: 14px;
-            overflow: hidden;
-            span {
-                color: #BDBDBD;
-            }
-        }
-    }
-    .booking-work {
-        display: block;
-        background-color: white;
-        border-radius: 6px;
-        overflow: hidden;
-        .booking-content {
-            display: block;
-            padding: 10px 15px 10px 40px;
-        }
-    }
-    .booking-contact {
-        display: block;
-        background-color: white;
-        border-radius: 6px;
-        overflow: hidden;
-        .title {
-            display: block;
-            padding: 15px;
-            color: #A9A9A9;
-        }
-        .contact-group {
-            display: block;
-            overflow: hidden;
-            .contact-item {
-                position: relative;
-                display: block;
-                padding: 15px 0;
-                padding-top: 18px;
-                margin: 0 10px;
-                overflow: hidden;
-                .box-sizing(border-box);
-                &.padding {
-                    padding-right: 75px;
-                    padding-left: 35px;
-                }
-                &.padding-both {
-                    padding-right: 100px;
-                    padding-left: 50px;
-                }
-                &.padding-left {
-                    padding-left: 35px;
-                }
-                &.padding-xs-left {
-                    padding-left: 50px;
-                }
-                &.padding-sm-left {
-                    padding-left: 65px;
-                }
-                &.padding-lg-left {
-                    padding-left: 93px;
-                }
-                &.modify {
-                    border-bottom: 1px solid #EBEBEB;
-                }
-                input {
-                    padding: 0;
-                    margin-bottom: 4px;
-                    margin-left: 8px;
-                    vertical-align: middle;
-                }
-                .name {
-                    position: absolute;
-                    top: 18px;
-                    left: 0;
-                    display: block;
-                }
-                .woman {
-                    position: absolute;
-                    top: 18px;
-                    right: 0;
-                    color: #A9A9A9;
-                }
-                .man {
-                    position: absolute;
-                    top: 18px;
-                    right: 45px;
-                    color: #BDBDBD;
-                }
-                .sms-code {
-                    position: absolute;
-                    top: 8px;
-                    right: 0;
-                    display: block;
-                    padding: 10px;
-                    border: 1px solid #37B3D5;
-                    font-size: 12px;
-                    color: #37B3D5;
-                }
-                .contact-item-title {
-                    display: block;
-                    margin-top: 15px;
-                }
-                .contact-item-content {
-                    position: relative;
-                    display: block;
-                    margin-top: 15px;
-                    .fa {
-                        position: relative;
-                        top: 2px;
-                        width: 20px;
-                        font-size: 18px;
-                        color: #62C3DE;
-                    }
-                }
-                .highlight {
-                    color: #000;
-                }
-                .color-primary {
-                    border: 1px solid #BDBDBD;
-                    color: #BDBDBD;
-                }
-            }
-        }
-    }
-    .policy {
-        display: block;
-        padding: 0 10px;
-        margin-bottom: 60px;
-        .policy-content {
-            position: relative;
-            display: block;
-            margin-bottom: 10px;
-            a {
-                color: #79AAE3;
-            }
-            .fa {
-                position: relative;
-                top: 2px;
-                width: 20px;
-                font-size: 18px;
-                color: #62C3DE;
-            }
-        }
-    }
-}
-
-.pay {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    background-color: white;
-    overflow: hidden;
-    .total {
-        display: block;
-        padding: 15px 5px 5px;
-        overflow: hidden;
-        .box-sizing(border-box);
-        &.border-right {
-            border-right: 1px solid #BDBDBD;
-        }
-        span {
-            display: block;
-            margin-bottom: 5px;
-            text-align: center;
-        }
-        label {
-            color: red;
-        }
-    }
-    .topay {
-        display: block;
-        padding: 25px 5px;
-    }
-}
-
-
-/***********************************编辑教育经历****************************************/
-
-.edit-certificate,
-.edit-basic,
-.edit-edu,
-.edit-work {
-    position: relative;
-    overflow: hidden;
-    background-color: white;
-    &.border-radius {
-        border-radius: 6px;
-    }
-    &.margin-bottom {
-        margin-bottom: 15px;
-    }
-    &.margin-left-area {
-        margin-left: 45px;
-    }
-    .edit-group {
-        position: relative;
-        display: block;
-        padding: 15px 0 0 15px;
-        margin-bottom: 15px;
-        overflow: hidden;
-        .edit-header {
-            display: block;
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-        .edit-item {
-            display: block;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            &.padding {
-                padding-right: 5px;
-            }
-            &.margin-left {
-                margin-left: 30px;
-            }
-            .nowaday {
-                position: absolute;
-                right: 10px;
-            }
-            input {
-                padding: 0;
-                margin: 0;
-            }
-        }
-        .edit-black {
-            color: #000;
-        }
-        .color-gray {
-            color: #BDBDBD;
-        }
-        .color-black {
-            color: #000;
-        }
-        .modify {
-            border-bottom: 1px solid #EBEBEB;
-        }
-    }
-    .edit-content {
-        display: block;
-        padding: 0 10px 10px 10px;
-        .edit-title {
-            position: relative;
-            display: block;
-            padding: 15px 0;
-            color: #00B5DA;
-            border-bottom: 1px solid #EBEBEB;
-            &.font-big {
-                font-size: 18px;
-                font-weight: bold;
-            }
-        }
-        .edit-list {
-            position: relative;
-            display: block;
-            margin-top: 15px;
-            margin-left: 15px;
-            &.padding-sm-left {
-                padding-left: 75px;
-            }
-            &.padding-lg-left {
-                padding-left: 100px;
-            }
-            .right-text {
-                display: inline-block;
-                width: 100%;
-                // span {
-                //     display: inline;
-                // }
-                .color {
-                    color: #BDBDBD;
-                }
-                input {
-                    margin: 0;
-                    padding: 0;
-                    vertical-align: middle;
-                }
-                select {
-                    padding: 0;
-                    margin: 0;
-                }
-                option {
-                    margin: 0;
-                    padding: 0;
-                }
-            }
-            .text-field {
-                position: absolute;
-                display: block;
-                top: 0;
-                left: 0;
-                &.text-down {
-                    padding-top: 1px;
-                }
-                span {
-                    color: white;
-                }
-            }
-            .text-area {
-                display: inline-block;
-                span {
-                    color: white;
-                }
-            }
-            .highlight {
-                color: #000 !important;
-            }
-        }
-        .color-gray {
-            color: #BDBDBD;
-        }
-    }
-    .edit-container {
-        display: block;
-        overflow: hidden;
-        padding-left: 45px;
-        margin-bottom: 20px;
-        width: 85%;
-        .img-wrap {
-            position: relative;
-            display: block;
-            padding: 0 5px 5px 0;
-            height: 82px;
-            width: 82px;
-        }
-    }
-}
-
-.edit-money {
-    position: relative;
-    display: block;
-    padding-left: 55px;
-    padding-right: 5px;
-    overflow: hidden;
-    .input-block {
-        background-color: white;
-        border-radius: 6px;
-        input {
-            padding: 15px 5px;
-            border-radius: 6px;
-        }
-    }
-    .rmb {
-        position: absolute;
-        top: 15px;
-        left: 0;
-    }
-}
-
-
-/******************************************译员详情（resume）简历*******************************************/
-
-//**********头像**********/
-.avatar-wrap {
-    position: relative;
-    display: block;
-    // padding-bottom: 15px;
-    &.padding-top {
-        padding-top: 15px;
-    }
-    .avatar {
-        position: relative;
-        display: inline-block;
-        width: 95px;
-        height: 90px;
-        imageview {
-            border-radius: 100%;
-        }
-    }
-    .avatar-info {
-        display: block;
-        padding-top: 15px;
-        width: 100%;
-    }
-}
-
-.detail {
-    display: block;
-    overflow: hidden;
-    margin-bottom: 15px;
-    .box-sizing(border-box);
-    .detail-header {
-        display: block;
-        padding: 15px 0;
-        &.modify {
-            border-bottom: 1px solid #EBEBEB;
-        }
-        &.font-big {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        span {
-            color: #62C3DE;
-        }
-        label {
+    &.required {
+        &:before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            top: 50%;
             display: inline-block;
-            margin-left: 10px;
-        }
-        b {
+            width: 20px;
+            margin-top: -8px;
             color: red;
-        }
-        .font-color {
-            color: #00B4DC;
+            text-align: center;
         }
     }
-    .basic-backgroup {
-        position: relative;
-        display: block;
+    input {
         padding: 15px;
-        overflow: hidden;
-        background-color: white;
+        width: 100%;
         .box-sizing(border-box);
-    }
-    .basic-info {
-        position: relative;
-        display: block;
-        padding: 10px;
-        padding-top: 0;
-        overflow: hidden;
-        background-color: white;
-        border-radius: 6px;
-        .fa {
-            color: #37B3D5;
-        }
-        .basic-content {
-            position: relative;
-            display: block;
-            font-size: 15px;
-            .basic-content-item {
-                position: relative;
-                display: block;
-                margin: 0 30px;
-                span {
-                    display: block;
-                    padding: 5px 0;
-                }
-                label {
-                    position: relative;
-                    display: inline-block;
-                    margin: 0 3px;
-                    top: -3px;
-                }
-                &.modify {
-                    border-bottom: 1px solid #EBEBEB;
-                }
-            }
-            .font-size {
-                font-size: 14px;
-            }
-            .basic-content-skill {
-                position: relative;
-                display: block;
-                margin: 0 5px;
-                padding: 10px 0 5px;
-                &.modify {
-                    border: 1px dashed #BDBDBD;
-                    border-left: none;
-                    border-right: none;
-                }
-                .skill {
-                    position: relative;
-                    display: block;
-                    // margin-top: 5px;
-                    span {
-                        display: inline-block;
-                    }
-                    label {
-                        position: relative;
-                        top: -3px;
-                    }
-                    b {
-                        color: #B3B3B3;
-                    }
-                    .border {
-                        border: 1px solid #BDBDBD;
-                        border-top: none;
-                        border-bottom: none;
-                    }
-                }
-            }
-            .skill-tag {
-                position: relative;
-                display: block;
-                margin: 0 5px;
-            }
-            .work-intention {
-                span {
-                    display: block;
-                    margin-bottom: 5px;
-                }
-            }
-        }
-        .exprience-content {
-            position: relative;
-            display: block;
-            .exprience-content-wrap {
-                position: relative;
-                display: block;
-                padding-left: 20px;
-                &.margin-top {
-                    margin-top: 10px;
-                }
-                .circle {
-                    position: absolute;
-                    top: -2px;
-                    left: 0;
-                    z-index: 5;
-                    .fa {
-                        color: #37B3D5;
-                    }
-                }
-                .get {
-                    display: block;
-                    margin-top: 10px;
-                }
-                .line {
-                    position: absolute;
-                    left: 5.5px;
-                    top: 10px;
-                    height: 100%;
-                    width: 1px;
-                    background-color: #62C3DE;
-                }
-                .exprience-time {
-                    color: #a5a2a2;
-                    // font-size: 14px;
-                }
-                .exprience-school {
-                    display: block;
-                    padding-top: 10px;
-                    // font-size: 14px;
-                    span {
-                        display: inline-block;
-                        margin-top: 5px;
-                        font-size: 15px;
-                        color: #a5a2a2;
-                    }
-                    .padding-left {
-                        padding-left: 5px;
-                    }
-                    .padding-right {
-                        padding-right: 5px;
-                    }
-                    .border-right {
-                        border-right: 1px solid #B3B3B3;
-                    }
-                }
-                .exprience-company {
-                    display: block;
-                    padding-top: 10px;
-                    //font-size: 14px;
-                    span {
-                        display: inline-block;
-                        padding: 0 5px;
-                    }
-                    .border-right {
-                        border-right: 1px solid #000;
-                    }
-                }
-                .duty {
-                    color: rgb(165, 162, 162);
-                    font-size: 15px;
-                }
-                .diploma {
-                    display: block;
-                    padding: 15px 0;
-                    border-bottom: 1px solid #EBEBEB;
-                    //font-size: 14px;
-                    span {
-                        font-size: 12px;
-                    }
-                    .modify-color {
-                        color: #62C3DE;
-                    }
-                    .font-color {
-                        color: #B3B3B3;
-                    }
-                }
-                .evaluate {
-                    position: relative;
-                    display: block;
-                    overflow: hidden;
-                    padding: 5px 0;
-                    border-bottom: 1px solid #BDBDBD;
-                    &:last-child {
-                        border-bottom: none;
-                    }
-                    .evaluate-item {
-                        display: block;
-                        overflow: hidden;
-                        margin-top: 10px;
-                        font-size: 15px;
-                        span {
-                            display: inline-block;
-                            color: #c5b72c;
-                        }
-                        .fa {
-                            color: #37B3D5;
-                        }
-                        .color {
-                            color: #BDBDBD;
-                        }
-                    }
-                }
-                .font-size {
-                    font-size: 14px;
-                }
-                .font-color {
-                    color: #BDBDBD;
-                }
-            }
-        }
-    }
-    .basic-inner {
-        position: relative;
-        display: block;
-        padding: 0 10px;
-        overflow: hidden;
-        background-color: white;
+        border: 1px solid fade(black, 30%);
         border-radius: 6px;
     }
-    .newadd {
-        position: relative;
-        display: block;
-        margin-top: 15px;
-        padding-right: 2px;
+    .smsbtn {
+        display: inline-block;
+        padding: 15px;
+        font-size:13px;
+        width: 100%;
         .box-sizing(border-box);
-        .add {
-            position: relative;
-            display: block;
-            width: 100%;
-            height: 70px;
-            border: 1px dashed #62C3DE;
-            background-color: rgba(221, 241, 247, 0.69);
-            span {
-                display: block;
-                margin-top: 15px;
-                color: #62C3DE;
-            }
-            .fa {
-                color: #62C3DE;
-            }
-            small {
-                display: block;
-                margin-top: 10px;
-                color: #A9A9A9;
-            }
+        border-radius: 6px;
+        color: white;
+        text-align: center;
+        background-color: @brand-primary;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        .box-shadow(none);
+        border: 0;
+    }
+}
+
+.booking-select {
+    position: relative;
+    margin-bottom: 15px;
+    &.required {
+        &:before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: inline-block;
+            width: 20px;
+            margin-top: -8px;
+            color: red;
+            text-align: center;
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        margin-top: -5px;
+        display: inline-block;
+        border-top: 5px solid fade(black, 50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+    }
+    select {
+        padding: 15px;
+        width: 100%;
+        .box-sizing(border-box);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 1px solid fade(black, 30%);
+        border-radius: 6px;
+    }
+}
+
+.info {
+    padding: 20px 0 30px;
+    font-size: 16px;
+    text-center: center;
+}
+
+.doctor-item {
+    position: relative;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    .box-shadow(0 7px 0px -3px fade(black, 20%));
+    border: 1px solid fade(black, 30%);
+    border-radius: 6px;
+    .doctor-avatar {
+        // position: absolute;
+        // left: 15px;
+        // top:8px;
+        display: inline-block;
+        float: left;
+        width: 60px;
+        margin-right: 15px;
+    }
+    .doctor-meta {
+        .clearfix;
+        min-height: 74px;
+        margin-bottom: 8px;
+        .doctor-name {
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-style: bold;
+        }
+        .doctor-action {
+            position: absolute;
+            display: inline-block;
+            right: 15px;
+            top: 8px;
+            text-align: center;
+        }
+    }
+    .doctor-summary {
+        max-height: 59px;
+        overflow: hidden;
+        line-height: 1.5;
+        font-size: 13px;
+    }
+}
+
+// booking btn
+.booking-btn {
+    display: inline-block;
+    padding: 15px;
+    width: 100%;
+    .box-sizing(border-box);
+    color: white;
+    text-align: center;
+    background-color: @brand-primary;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    .box-shadow(none);
+    border: 0;
+}
+
+.doctor-case {
+    line-height: 1.5;
+    color: white;
+    .doctor-avatar {
+        display: inline-block;
+        height: 80px;
+        width: 80px;
+        background-color: white;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+}
+
+.tab {
+    .tab-item {
+        padding: 15px;
+        border-bottom: 3px solid fade(black, 10%);
+        &.active {
+            color: @brand-primary;
+            border-bottom: 3px solid @brand-primary;
         }
     }
 }
 
-
-/***********************************订单管理****************************************/
-
-.order-tab {
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    background-color: white;
-    .order-tab-item {
-        display: inline-block;
-        padding: 15px 5px;
-        width: 100%;
-        .box-sizing(border-box);
-        &.tab-modify {
-            border-right: 1px solid #D8D9D9;
-        }
+.comments {
+    .comment {
+        padding: 8px 15px;
+        border-bottom: 1px solid fade(black, 17%);
     }
+    .comment-name {
+        font-style: bold;
+        font-size: 20px;
+    }
+    .comment-avatar {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+}
+
+.comment-area {
+    padding: 8px;
+    margin: 15px auto;
+    width: 100%;
+    min-height: 150px;
+    border-radius: 6px;
+    .box-sizing(border-box);
+    border: 1px solid fade(black, 17%);
+}
+
+.line {
+    display: block;
+    height: 1px;
+    background-color: fade(black, 17%);
 }
 
 .order {
-    display: block;
-    overflow: hidden;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    background-color: white;
-    .box-sizing(border-box);
-    .modify {
-        border-bottom: 1px solid #EBEBEB;
-    }
-    .order-title {
-        padding: 10px;
-    }
-    .order-content {
-        position: relative;
-        display: block;
-        padding: 0 15px 15px 45px;
-        overflow: hidden;
-        .order-content-item {
-            display: block;
-            margin-top: 15px;
-        }
-        // .fa {
-        //     position: absolute;
-        //     top: 13px;
-        //     right: 0;
-        // }
-    }
-    .order-wait {
-        position: relative;
-        display: block;
-        padding: 15px;
-        .order-wait-content {
-            position: relative;
-            display: block;
-            padding-left: 45px;
-            .avatar {
-                position: absolute;
-                display: block;
-                top: 0;
-                left: 0;
-                height: 40px;
-                width: 40px;
-                border-radius: 4px;
-                overflow: hidden;
-                .box-sizing(border-box);
-            }
-            .order-wait-info {
-                position: relative;
-                display: block;
-                padding: 12px 0;
-                height: 40px;
-                .box-sizing(border-box);
-                // span {
-                //     position: absolute;
-                //     display: block;
-                //     top: 13px;
-                //     right: 20px;
-                // }
-            }
-        }
-        .order-wait-contact {
-            position: relative;
-            display: block;
-            margin-top: 10px;
-            font-size: 14px;
-            span {
-                margin: 5px 5px 0 0;
-            }
-        }
-    }
-    .order-btn {
-        display: block;
-        width: 100%;
-        overflow: hidden;
-        .box-sizing(border-box);
-        .button {
-            display: block;
-            padding: 20px 5px;
-            &.border-right {
-                border-right: 1px solid #EBEBEB;
-            }
-        }
-    }
-    .order-to-evaluate {
-        display: block;
-        padding: 15px;
-    }
-}
-
-
-/***********************************译员评价****************************************/
-
-.review {
-    position: relative;
-    display: block;
     padding: 15px;
-    background-color: white;
-    overflow: hidden;
-    .box-sizing(border-box);
-    .review-item {
-        display: block;
-        margin-bottom: 20px;
-        overflow: hidden;
-        .review-header {
-            position: relative;
-            display: block;
-            padding-left: 65px;
-            padding-bottom: 10px;
-            height: 65px;
-            overflow: hidden;
-            .box-sizing(border-box);
-            &.modify {
-                border-bottom: 1px solid #BDBDBD;
-            }
-            .review-avatar {
-                position: absolute;
-                display: block;
-                top: 0;
-                left: 0;
-                height: 55px;
-                width: 55px;
-                imageview {
-                    border-radius: 100%;
-                }
-            }
-            .review-info {
-                display: block;
-                padding: 20px 0;
-            }
-        }
-        .textarea {
-            position: relative;
-            display: block;
-            textarea {
-                position: relative;
-                display: block;
-                padding: 10px;
-                margin-bottom: 10px;
-                width: 100%;
-                height: 140px;
-                border: 1px solid #BDBDBD;
-                border-radius: 3px;
-                .box-sizing(border-box);
-            }
-            .tip {
-                position: absolute;
-                bottom: 5px;
-                right: 10px;
-                font-size: 12px;
-                color: #ACACAC;
-            }
-        }
-        .review-skill {
-            position: relative;
-            display: block;
-            &.margin-bottom {
-                margin-bottom: 20px;
-            }
-            span {
-                display: inline-block;
-            }
-            .margin-right {
-                margin-right: 30px;
-            }
+    border-bottom: 1px solid fade(black, 17%);
+    span {
+        vertical-align: middle;
+    }
+    .btn {
+        min-width: 80px;
+    }
+    .order-action {
+        padding: 8px 0 0 0 0;
+        text-align: right !important;
+        .order-doctor-info {
+            text-align: left !important;
         }
     }
+    .order-avatar {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        border-radius: 100%;
+    }
 }
-
-
-/***********************************可预约日期****************************************/
-
-.choice-time {
-    position: relative;
+.information{
+    padding:15px;
+    border-bottom: 1px solid fade(black, 17%);
+    .information-thumbnail {
+        width: 125px;
+        margin-right: 15px;
+        float: left;
+    }
+    .information-title {
+        font-size: 20px;
+    }
+    .information-summary {
+        height: 48px;
+        overflow: hidden;
+        color: fade(#2c3e50,50%);
+    }
+}
+.notfound {
     display: block;
-    padding-top: 60px;
-    padding-bottom: 75px;
-    overflow: hidden;
-    background-color: white;
-    .time-header {
-        position: fixed;
-        display: block;
-        top: 0;
-        left: 0;
-        padding-bottom: 10px;
-        width: 100%;
-        background-color: white;
-        border-bottom: 1px solid #EBEBEB;
-        z-index: 100;
-        .time-title {
-            display: block;
-            padding: 10px 0;
-        }
-    }
-    .time-container {
-        display: block;
-        overflow: hidden;
-        width: 100%;
-        .container-title {
-            display: block;
-            padding: 15px;
-            color: #B3B3B3;
-        }
-        .day-wrap {
-            display: block;
-            padding: 0 5px 5px 5px;
-            width: 100%;
-            overflow: hidden;
-            &.margin-bottom {
-                margin-bottom: 30%;
-            }
-            .box-sizing(border-box);
-            .day {
-                display: block;
-                padding: 4px 5px;
-                .box-sizing(border-box);
-                .day-item {
-                    position: relative;
-                    display: block;
-                    padding: 10px 5px;
-                    border-radius: 2px;
-                    .box-sizing(border-box);
-                }
-            }
-        }
-        .margin-left-1 {
-            margin-left: 14.28571%;
-        }
-        .margin-left-2 {
-            margin-left: 28.57142%;
-        }
-        .margin-left-3 {
-            margin-left: 42.85714%;
-        }
-        .margin-left-4 {
-            margin-left: 57.14287%;
-        }
-        .margin-left-5 {
-            margin-left: 71.42857%;
-        }
-        .margin-left-6 {
-            margin-left: 85.71428%;
-        }
-        .border-color {
-            border: 1px solid white;
-        }
-        //可选择
-        .default {
-            border: 1px solid #000;
-        }
-        //不能选择
-        .unselect {
-            border: 1px solid #EBEBEB;
-            background-color: #EBEBEB;
-            color: #BDBDBD;
-        }
-        //忙碌
-        .busy {
-            color: white;
-            border: 1px solid #95d7e9;
-            background-color: #95d7e9;
-        }
-        //已选择
-        .highlight {
-            // color: #62C3DE;
-            // border: 1px solid #62C3DE;
-            // background-color: white;
-            color: white;
-            border: 1px solid #37B3D5;
-            background-color: #37B3D5;
-        }
-        //已预约
-        .bookinged {
-            color: white;
-            border: 1px solid #62C3DE;
-            background-color: #62C3DE;
-            &:before {
-                content: "";
-                border-left: 5px solid transparent;
-                border-right: 5px solid #37B3D5;
-                border-bottom: 5px solid transparent;
-                border-top: 5px solid #37B3D5;
-                display: inline-block;
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-        }
-    }
-    .no-booking {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        .time-icon {
-            position: relative;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            margin: 5px 5px 5px 10px;
-            float: left;
-            &.uncan {
-                background-color: #EBEBEB;
-                border: 1px solid #EBEBEB;
-            }
-            &.can {
-                border: 1px solid #000;
-            }
-            &.caned {
-                border: 1px solid #95D7E9;
-                background-color: #95D7E9;
-            }
-            &.selected {
-                position: relative;
-                border: 1px solid #95D7E9;
-                background-color: #95D7E9;
-                &:before {
-                    content: "";
-                    border-left: 5px solid transparent;
-                    border-right: 5px solid #37B3D5;
-                    border-bottom: 5px solid transparent;
-                    border-top: 5px solid #37B3D5;
-                    display: inline-block;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                }
-            }
-        }
-        span {
-            position: relative;
-            display: inline-block;
-            padding: 8px 5px 5px 5px;
-            float: left;
-        }
-    }
-    .time-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: white;
+    width: 150px;
+    margin: 35px auto;
+}
+// icon
+.checkbox {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-top: 0;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+    background-image: url("../images/uncheck.png");
+    &.active {
+        background-image: url("../images/check.png");
     }
 }
-
-
-/***********************************城市选择****************************************/
-
-.choice {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    background-color: white;
-    .choice-header {
-        display: block;
-        overflow: hidden;
-        &.border-bottom {
-            border-bottom: 1px solid #EBEBEB;
-        }
-        .choice-search {
-            display: block;
-            padding: 15px;
-            .search {
-                position: relative;
-                display: block;
-                border: 1px solid #37B3D5;
-                display: block;
-                padding: 10px 10px 10px 30px;
-                border-radius: 4px;
-                .box-sizing(border-box);
-                input::-webkit-input-placeholder {
-                    text-align: center;
-                }
-                input {
-                    padding: 0;
-                }
-                .fa {
-                    position: absolute;
-                    top: 12px;
-                    left: 10px;
-                    font-size: 16px;
-                    color: #37B3D5;
-                }
-            }
-        }
-    }
-    .choice-container {
-        position: relative;
-        display: block;
-        padding: 0 25px 15px 10px;
-        width: 100%;
-        overflow: hidden;
-        .box-sizing(border-box);
-        .hot {
-            display: block;
-            padding: 8px 0 8px 15px;
-            margin-left: -10px;
-            margin-right: -25px;
-            background-color: #eaeaea;
-            &.hot-color {
-                color: #ACACAC;
-            }
-            &.hot-border {
-                border-bottom: 1px solid #EBEBEB;
-                color: #000;
-            }
-            &.hot-padding {
-                padding-bottom: 15px;
-            }
-        }
-        .hot-border {
-            border-bottom: 1px solid #BDBDBD;
-        }
-        .hot-border-white {
-            border-bottom: 1px solid white;
-        }
-        .choice-container-item {
-            .choice-list-item {
-                display: block;
-                padding: 15px 0;
-                margin-left: 6px;
-                border-bottom: 1px solid #EBEBEB;
-            }
-            .choice-list-item:last-child {
-                border-bottom: none;
-            }
-            .highlight {
-                color: #37B3D5;
-            }
-        }
-    }
-    .letter {
-        position: fixed;
-        top: 117px;
-        right: 0;
-        span {
-            display: block;
-            padding: 5px 3px 0 3px;
-            text-align: center;
-            font-size: 13px;
-            color: @brand-primary;
-        }
-        .tip {
-            position: fixed;
-            left: 0;
-            right: 0;
-            width: 50px;
-            top: 50%;
-            margin: auto auto;
-            padding: 5px;
-            background-color: fade(black, 50%);
-            color: white;
-        }
-    }
-}
-
-
-/***********************************摸态框****************************************/
-
-.model {
-    position: fixed;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    background-color: fade(black, 50%);
-}
-
-.model-container {
-    position: relative;
-    width: 250px;
-    margin: 45% auto;
-    background-color: #fff;
-    border: 1px solid #eee;
-    text-align: center;
-    border-radius: 8px;
-    .model-header {
-        display: block;
-        padding: 25px 10px;
-        text-align: center;
-        border-bottom: 1px solid #BDBDBD;
-    }
-    .model-btn {
-        display: block;
-        padding: 15px 5px;
-        text-align: center;
-    }
-}
-
-
-/***********************************练习****************************************/

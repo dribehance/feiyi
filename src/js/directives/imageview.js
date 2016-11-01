@@ -1,13 +1,15 @@
-angular.module("Uelives")
+angular.module("Feiyi")
 	.directive('imageview', function($timeout) {
 		return {
 			restrict: 'E',
 			scope: {
-				src: "="
+				src: "=",
+				err: "=?"
 			},
 			controller: function($scope, $element, $attrs) {
-				$scope.bg_image = "../images/default.png";
-				$scope.rate = parseFloat($attrs.rate);
+				$scope.bg_image = $scope.err || "../images/default.png";
+				$scope.rate = parseFloat($scope.$eval($attrs.rate));
+				console.log($scope.rate)
 				$scope.width = $element.parent().width() || $(window).width();
 				$scope.height = $scope.width / $scope.rate;
 				if (!$scope.rate) {
@@ -90,9 +92,9 @@ angular.module("Uelives")
 				}
 			},
 			template: function(element, attrs) {
-				var template = "<img ng-src='{{src}}' show-center-on-loaded err-src='../images/default.png'>";
+				var template = "<img ng-src='{{src}}' show-center-on-loaded err-src='{{bg_image}}'>";
 				if ($(element).attr('center-only') == undefined) {
-					template = "<img ng-src='{{src}}' show-on-loaded err-src='../images/default.png'>"
+					template = "<img ng-src='{{src}}' show-on-loaded err-src='{{bg_image}}'>"
 				}
 				return template;
 			},

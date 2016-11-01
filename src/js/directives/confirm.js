@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('confirm', function() {
+angular.module("Feiyi").directive('confirm', function() {
 	return {
 		restrict: 'E',
 		scope: {

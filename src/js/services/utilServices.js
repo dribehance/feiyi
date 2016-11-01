@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").factory("utilServices", function($q) {
+angular.module("Feiyi").factory("utilServices", function($q) {
 	var dataURItoBlob = function(dataURI) {
 		// convert base64/URLEncoded data component to raw binary data held in a string
 		var byteString;

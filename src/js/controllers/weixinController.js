@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").controller("weixinController", function($scope, $rootScope, $location, $timeout, weixinServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Feiyi").controller("weixinController", function($scope, $rootScope, $location, $timeout, weixinServices, errorServices, toastServices, localStorageService, config) {
 	// config weixin
 	$rootScope.wx_browser && weixinServices.config().then(function(data) {
 		toastServices.show();

@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").factory("toastServices", function() {
+angular.module("Feiyi").factory("toastServices", function() {
 	return {
 		show: function() {
 			$(".toast").show();

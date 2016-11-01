@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").factory("errorServices", function($rootScope, $timeout, toastServices) {
+angular.module("Feiyi").factory("errorServices", function($rootScope, $timeout, toastServices) {
 	return {
 		show: function(error) {
 			$rootScope.error_msg = error;

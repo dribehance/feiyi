@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('pagetitle', function($document) {
+angular.module("Feiyi").directive('pagetitle', function($document) {
 	return {
 		restrict: 'E',
 		scope: {

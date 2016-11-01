@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('dribehanceHeader', function() {
+angular.module("Feiyi").directive('dribehanceHeader', function() {
 	return {
 		restrict: 'E',
 		templateUrl: "templates/header.html",

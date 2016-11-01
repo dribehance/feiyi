@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('banner', function() {
+angular.module("Feiyi").directive('banner', function() {
 	return {
 		restrict: 'E',
 		transclude: true,

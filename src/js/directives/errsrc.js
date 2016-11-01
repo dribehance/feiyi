@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('errSrc', function() {
+angular.module("Feiyi").directive('errSrc', function() {
 	return {
 		restrict: 'A',
 		link: function(scope, element, attrs) {

@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('mobilepicker', function($timeout) {
+angular.module("Feiyi").directive('mobilepicker', function($timeout) {
 	return {
 		restrict: 'E',
 		scope: {

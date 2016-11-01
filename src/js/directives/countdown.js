@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('countdown', function($interval) {
+angular.module("Feiyi").directive('countdown', function($interval) {
 	return {
 		restrict: 'E',
 		scope: {

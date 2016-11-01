@@ -1,4 +1,4 @@
-angular.module("Uelives").directive('uploader', function($timeout, localStorageService, toastServices, errorServices, config) {
+angular.module("Feiyi").directive('uploader', function($timeout, localStorageService, toastServices, errorServices, config) {
 	return {
 		restrict: 'E',
 		template: function(element, attrs) {

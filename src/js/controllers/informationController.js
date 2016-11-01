@@ -1,56 +1,54 @@
-angular.module("Uelives").controller("informationController", function($scope, $filter, $location, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
-	$scope.input = {};
-	toastServices.show();
-	userServices.query_basicinfo({
-		type: "1",
-	}).then(function(data) {
-		toastServices.hide()
-		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-			$scope.user = data.Result.UserInfo;
-		} else {
-			errorServices.autoHide(data.message);
+// by dribehance <dribehance.kksdapp.com>
+angular.module("Feiyi").controller("informationController", function($scope, $location, feiyiServices, errorServices, toastServices, localStorageService, config) {
+	$scope.tab_item = "1";
+	$scope.active_tab = function(type) {
+		if ($scope.tab_item == type) {
+			return;
 		}
-	})
-	$scope.input.flow = {};
-	$scope.update_avatar = function() {
+		$scope.tab_item = type;
+		$scope.page = {
+			pn: 1,
+			page_size: 1,
+			message: "点击加载更多",
+			type: type
+		}
+		$scope.no_more = false;
+		$scope.loadMore(true);
+	}
+	$scope.go = function(id) {
+		$location.path("information_detail").search("id", id)
+	}
+	$scope.information = [];
+	$scope.page = {
+		pn: 1,
+		page_size: 1,
+		message: "点击加载更多",
+		type: 1
+	}
+	$scope.loadMore = function(type) {
+		if ($scope.no_more) {
+			return;
+		}
 		toastServices.show();
-		userServices.update_avatar({
-			fileName: $scope.input.flow.opts.query.filename
-		}).then(function(data) {
-			toastServices.hide()
+		$scope.page.message = "正在加载...";
+		feiyiServices.query_information_by_type($scope.page).then(function(data) {
+			toastServices.hide();
+			$scope.page.message = "点击加载更多";
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				errorServices.autoHide(data.message);
+				if (type) {
+					$scope.information = [];
+				}
+				$scope.information = $scope.information.concat(data.Result.NewsList.list);
+				$scope.no_more = $scope.information.length == data.Result.NewsList.totalRow ? true : false;
 			} else {
-				errorServices.autoHide(data.message);
+				errorServices.autoHide("服务器错误");
 			}
+			if ($scope.no_more) {
+				$scope.page.message = "没有了";
+			}
+			$scope.page.pn++;
 		})
+
 	}
-	$scope.cache_and_go = function(path, key) {
-		localStorageService.set("cache", $scope.input);
-		$location.path(path).search("cache_key", key);
-	}
-	$scope.format_time = function(time, format) {
-		if (time) {
-			return time.split("-").join(".");
-		}
-	};
-	$scope.replace_hash = function(hashs) {
-		return hashs && hashs.replace(/#/g, "、");
-	};
-	$scope.preview = function() {
-		$location.path("interpreter_detail").search({
-			"id": $scope.user.user_id,
-		});
-		// toastServices.show();
-		// userServices.preview().then(function(data) {
-		// 	toastServices.hide()
-		// 	if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-		// 		$location.path("online_preview").search("id", $scope.user.user_id);
-		// 	} else {
-		// 		errorServices.autoHide(data.message);
-		// 	}
-		// })
-	};
-	// remove cache
-	localStorageService.remove("cache");
-})
+	$scope.loadMore(false);
+});

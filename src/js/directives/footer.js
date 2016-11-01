@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").directive('dribehanceFooter', function() {
+angular.module("Feiyi").directive('dribehanceFooter', function() {
 	return {
 		restrict: 'E',
 		templateUrl: "templates/footer.html",

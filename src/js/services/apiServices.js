@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").factory("apiServices", function($http, localStorageService) {
+angular.module("Feiyi").factory("apiServices", function($http, localStorageService) {
 	return {
 		_get: function(request) {
 			return function(input) {

@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives", [
+angular.module("Feiyi", [
 		"ngRoute",
 		// "ngSanitize",
 		"LocalStorageModule",

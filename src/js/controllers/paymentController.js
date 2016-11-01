@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").controller("paymentController", function($scope, $rootScope, $timeout, $routeParams, userServices, weixinServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Feiyi").controller("paymentController", function($scope, $rootScope, $timeout, $routeParams, userServices, weixinServices, errorServices, toastServices, localStorageService, config) {
 	if (!$routeParams.order_id) {
 		$rootScope.back();
 		return;

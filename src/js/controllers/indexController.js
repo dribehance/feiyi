@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").controller("indexController", function($scope, $filter, $location, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Feiyi").controller("indexController", function($scope, $filter, $location, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.input.city = "深圳";
 	$scope.input.language = {

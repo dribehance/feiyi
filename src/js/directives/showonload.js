@@ -1,4 +1,4 @@
-angular.module("Uelives").directive('showOnLoaded', function() {
+angular.module("Feiyi").directive('showOnLoaded', function() {
 	return {
 		link: function(scope, element, attrs) {
 			$(element).css({

@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").controller("orderController", function($scope, $routeParams, $filter, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Feiyi").controller("orderController", function($scope, $routeParams, $filter, userServices, errorServices, toastServices, localStorageService, config) {
 	toastServices.show();
 	userServices.query_order({
 		orders_id: $routeParams.id

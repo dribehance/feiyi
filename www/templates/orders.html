@@ -1,0 +1,120 @@
+<pagetitle title="'订单管理'"></pagetitle>
+<div class="tab justified">
+    <span class="tab-item" ng-class="{'active':tab_item == 'unpaid'}" ng-click="active_tab('unpaid')">待支付</span>
+    <span class="tab-item" ng-class="{'active':tab_item == 'arrange'}" ng-click="active_tab('arrange')">安排中</span>
+    <span class="tab-item" ng-class="{'active':tab_item == 'confirm'}" ng-click="active_tab('confirm')">待确认</span>
+    <span class="tab-item" ng-class="{'active':tab_item == 'comment'}" ng-click="active_tab('comment')">已评价</span>
+</div>
+<!-- 待支付 -->
+<div ng-if="tab_item == 'unpaid'">
+    <div class="order">
+        <div class="order-time pull-right">
+            2015.02.02 15:00
+        </div>
+        <div class="order-id">
+            订单编号：888888
+        </div>
+        <div class="order-content">
+            深圳市第二人民医院 肠胃内科 肠胃炎
+        </div>
+        <div class="order-action justified">
+            <div class="order-doctor-info">
+                <span class="btn btn-primary">支付</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 安排中 -->
+<div ng-if="tab_item == 'arrange'">
+    <div class="order">
+        <div class="order-time pull-right">
+            2015.02.02 15:00
+        </div>
+        <div class="order-id">
+            订单编号：888888
+        </div>
+        <div class="order-content">
+            深圳市第二人民医院 肠胃内科 肠胃炎
+        </div>
+    </div>
+</div>
+<!-- 待确认 -->
+<div ng-if="tab_item == 'confirm'">
+    <div class="order">
+        <div class="order-time pull-right">
+            2015.02.02 15:00
+        </div>
+        <div class="order-id">
+            订单编号：888888
+        </div>
+        <div class="order-content">
+            深圳市第二人民医院 肠胃内科 肠胃炎
+        </div>
+        <div class="order-action justified">
+            <div class="order-doctor-info">
+                <span class="order-avatar">
+                    <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+                </span>
+                <span>梁一建</span>
+            </div>
+            <div>
+                <span class="btn btn-danger">行程/差旅</span>
+            </div>
+            <div>
+                <span class="btn btn-warning">医生档案</span>
+            </div>
+        </div>
+    </div>
+    <div class="order">
+        <div class="order-time pull-right">
+            2015.02.02 15:00
+        </div>
+        <div class="order-id">
+            订单编号：888888
+        </div>
+        <div class="order-content">
+            深圳市第二人民医院 肠胃内科 肠胃炎
+        </div>
+        <div class="order-action justified">
+            <div class="order-doctor-info">
+                <span class="order-avatar">
+                    <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+                </span>
+                <span>梁一建</span>
+            </div>
+            <div>
+                <span class="btn btn-warning">医生档案</span>
+            </div>
+            <div>
+                <span class="btn btn-primary">评价医生</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="tab_item == 'comment'">
+    <div class="order">
+        <div class="order-time pull-right">
+            2015.02.02 15:00
+        </div>
+        <div class="order-id">
+            订单编号：888888
+        </div>
+        <div class="order-content">
+            深圳市第二人民医院 肠胃内科 肠胃炎
+        </div>
+        <div class="order-action justified">
+            <div class="order-doctor-info">
+                <span class="order-avatar">
+                    <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+                </span>
+                <span>梁一建</span>
+            </div>
+            <div>
+                <span class="btn btn-warning">医生档案</span>
+            </div>
+            <div>
+                <span class="btn btn-primary">赠送锦旗</span>
+            </div>
+        </div>
+    </div>
+</div>
