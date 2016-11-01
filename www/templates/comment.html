@@ -1,0 +1,9 @@
+<pagetitle title="'医生评价'"></pagetitle>
+<form name="commentForm" ng-submit="ajaxForm()" class="wrap">
+    <div class="review-item text-center">
+        请为医生评价
+    </div>
+    <textarea class="comment-area" placeholder="请写出您对译员的评价吧~" name="note" ng-model="input.note" ng-minlength="8"></textarea>
+    <div class="tip text-danger" ng-if="commentForm.note.$invalid">至少输入8个字</div>
+    <button type="submit" class="btn btn-primary btn-lg full-width">提交评价</button>
+</form>

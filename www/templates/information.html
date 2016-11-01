@@ -1,0 +1,18 @@
+<pagetitle title="'学术中心'"></pagetitle>
+<div class="tab justified">
+    <span class="tab-item" ng-class="{'active':tab_item == '1'}" ng-click="active_tab('1')">名医访谈</span>
+    <span class="tab-item" ng-class="{'active':tab_item == '2'}" ng-click="active_tab('2')">手术学堂</span>
+    <span class="tab-item" ng-class="{'active':tab_item == '3'}" ng-click="active_tab('3')">公益活动</span>
+</div>
+<div class="information" ng-repeat="info in information" ng-click="go(info.news_id)">
+    <div class="information-thumbnail">
+        <imageview data-rate="193/114" src="staticImageUrl + info.images_01"></imageview>
+    </div>
+    <div class="information-title text-ellipsis">{{info.title}}</div>
+    <div class="information-summary">
+        {{info.summary}}
+    </div>
+</div>
+<div class="wrap">
+    <span class="btn btn-primary btn-lg full-width" ng-click="loadMore()">{{page.message}}</span>
+</div>
