@@ -1,0 +1,309 @@
+<pagetitle title="'订单管理'"></pagetitle>
+<div class="order-tab">
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.type=='2'}" ng-click="active_tab('2')">
+            等待接单
+        </a>
+    </div>
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.type=='3'}" ng-click="active_tab('3')">
+            已确认
+        </a>
+    </div>
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.type=='4'}" ng-click="active_tab('4')">
+            已完成
+        </a>
+    </div>
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item text-center" ng-class="{'text-primary':input.type=='5'}" ng-click="active_tab('5')">
+            已取消
+        </a>
+    </div>
+</div>
+<div class="wrap">
+    <div class="section" ng-repeat="order in orders">
+        <!-- 1 -->
+        <div class="order" ng-if="order.status=='2' && order.is_translate=='0'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <a class="order-wait" ng-href="#/online_preview?id={{order.translate_user_id}}&type=2">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
+                    </div>
+                    <div class="order-wait-info">
+                        {{order.translate_user_name}}
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <span class="pull-right">等待译员接单</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 2 -->
+        <div class="order" ng-if="order.status=='2' && order.is_translate=='1'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <div class="order-btn">
+                <div class="col-ms-2 pull-left" ng-click="mark('1',order)">
+                    <div class="button text-center border-right">接受</div>
+                </div>
+                <div class="col-ms-2 pull-left" ng-click="mark('2',order)">
+                    <div class="button text-center">拒绝</div>
+                </div>
+            </div>
+        </div>
+        <!-- 3 -->
+        <div class="order" ng-if="order.status=='3' && order.is_translate=='0'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <a class="order-wait" ng-href="#/online_preview?id={{order.translate_user_id}}&type=2">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
+                    </div>
+                    <div class="order-wait-info">
+                        {{order.translate_user_name}}
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <!-- <span class="pull-right">等待译员接单</span> -->
+                    </div>
+                    <div class="order-wait-contact clearfix text-left">
+                        <span class="pull-left"><i class="fa fa-mobile" aria-hidden="true"></i> {{order.translate_country_code}} {{order.translate_telephone}}</span> &nbsp
+                        <span class="pull-left"><i class="fa fa-weixin" aria-hidden="true"></i>{{order.translate_wechat}}</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 4 -->
+        <div class="order" ng-if="order.status=='3' && order.is_translate=='1'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <div class="order-title modify">
+                客户信息
+            </div>
+            <a class="order-content">
+                <div class="order-content-item">
+                    姓名: {{order.order_name}}
+                </div>
+                <div class="order-content-item">
+                    电话:{{order.country_code}} {{order.order_telephone}}
+                </div>
+                <div class="order-content-item">
+                    微信号: {{order.order_wechat}}
+                </div>
+            </a>
+        </div>
+        <!-- 5 -->
+        <div class="order" ng-if="order.status=='4' && order.is_translate=='0'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <a class="order-wait modify" ng-href="#/online_preview?id={{order.translate_user_id}}&type=2">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
+                    </div>
+                    <div class="order-wait-info">
+                        {{order.translate_user_name}}
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <!-- <span class="pull-right">等待译员接单</span> -->
+                    </div>
+                </div>
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==0" ng-href="#/interpreter_evaluate?id={{order.translate_user_id}}&order_id={{order.orders_id}}">
+            去评价
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==1">已评价</a>
+        </div>
+        <!-- 51 -->
+        <div class="order" ng-if="order.status=='41' && order.is_translate=='0'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <a class="order-wait modify" ng-href="#/online_preview?id={{order.translate_user_id}}&type=2">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
+                    </div>
+                    <div class="order-wait-info">
+                        {{order.translate_user_name}}
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <!-- <span class="pull-right">等待译员接单</span> -->
+                    </div>
+                </div>
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==0" ng-href="#/interpreter_evaluate?id={{order.translate_user_id}}&order_id={{order.orders_id}}">
+            去评价
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==1">已评价</a>
+        </div>
+        <!-- 6 -->
+        <div class="order" ng-if="order.status=='4' && order.is_translate=='1'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <div class="order-btn">
+                <a class="col-ms-2 pull-left" ng-href="#/preview_comment?id={{order.orders_id}}">
+                    <div class="button text-center border-right">查看评价</div>
+                </a>
+                <div class="col-ms-2 pull-left" ng-click="mark('3',order)">
+                    <a class="button text-center">任务收款</a>
+                </div>
+            </div>
+        </div>
+        <!-- 61 -->
+        <div class="order" ng-if="order.status=='41' && order.is_translate=='1'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <div class="order-btn">
+                <a class="col-ms-2 pull-left" ng-href="#/preview_comment?id={{order.orders_id}}">
+                    <div class="button text-center border-right">查看评价</div>
+                </a>
+                <div class="col-ms-2 pull-left">
+                    <a class="button text-center">已申请提款</a>
+                </div>
+            </div>
+        </div>
+        <!-- 7 -->
+        <div class="order" ng-if="order.status=='5' && order.is_translate=='0'">
+            <div class="order-title modify">
+                口译
+                <span class="pull-right">已取消</span>
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+        </div>
+        <div class="order" ng-if="order.status=='5' && order.is_translate=='1'">
+            <div class="order-title modify">
+                口译
+                <span class="pull-right">已取消</span>
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="btn btn-primary full-width btn-lg" ng-click="loadMore()">{{page.message}}</div>
+</div>
+<!-- confirm -->
+<confirm confirm="confirm"></confirm>

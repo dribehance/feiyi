@@ -1,0 +1,30 @@
+<pagetitle title="'请编辑语言能力及证书'"></pagetitle>
+<form name="editForm" ng-submit="ajaxForm()">
+    <div class="edit-certificate">
+        <div class="edit-group">
+            <div class="edit-item modify">
+                <div class="icon icon-edit"></div>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <input type="text" class="full-width" placeholder="证书名称" name="title" ng-model="input.title">
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <select style="padding:0; text-align: left;" ng-options="time_option for time_option in time_options" class="full-width" name="time_option" ng-model="input.time_option" ng-class="{'color-gray':!input.time_option}">
+                    <option value="">请选择获得年份</option>
+                </select>
+                
+            </div>
+        </div>
+        <div class="edit-container">
+            <div class="col-ms-3 pull-left">
+                <div class="img-wrap">
+                    <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{input.image_01}}" default="../images/1.png" class="full-width full-height block"></uploader>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap text-center">
+        <button type="button" class="btn btn-lg btn-danger" ng-click="remove()" ng-if="input.remove_id">删除</button>
+        <button type="submit" class="btn btn-lg btn-primary">保存</button>
+    </div>
+</form>

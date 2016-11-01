@@ -1,0 +1,206 @@
+<pagetitle title="'译员详情'"></pagetitle>
+<div class="wrap">
+    <div class="detail">
+        <div class="basic-info">
+            <div class="detail-header modify font-big">
+                <span>基本信息</span>
+                <div class="icon icon-basicinfo pull-right"></div>
+            </div>
+            <div class="basic-content">
+                <div class="avatar-wrap text-center" style="padding-top:15px;">
+                    <div class="avatar">
+                        <imageview data-rate="1" center-only src="staticImageUrl+user.image_01"></imageview>
+                        <div class="icon icon-man" ng-if="user.sex=='男'"></div>
+                        <div class="icon icon-nv" ng-if="user.sex=='女'"></div>
+                    </div>
+                </div>
+                <div class="basic-content-item modify text-center">
+                    <span style="font-size:18px">{{user.nickname}}</span>
+                </div>
+                <div class="basic-content-item text-center">
+                    <span>{{user.translate_level}} <label>.</label> {{user.translate_year}}翻译经验</span>
+                </div>
+                <div class="basic-content-skill modify text-center">
+                    <div class="skill text-center">
+                        <span>{{user.mother_language}}<label ng-if="user.mother_language">.</label>母语</span>
+                        <b ng-if="user.mother_language">|</b>
+                        <span>{{user.first_language}}<label ng-if="user.first_language">.</label>{{user.first_language_level}}</span>
+                        <b ng-if="user.second_language">|</b>
+                        <span ng-if="user.second_language">{{user.second_language}}<label>.</label>{{user.second_language_level}}</span>
+                    </div>
+                    <div class="skill text-center">
+                        <div class="icon icon-person"></div>
+                        {{user.city}}
+                        <label>.</label> {{user.sex}}
+                        <label>.</label> {{user.age}}岁
+                        <label>.</label> {{user.edu}}
+                    </div>
+                    <div class="skill text-center">
+                        <div class="icon icon-industry-basic"></div>
+                        擅长领域 / 行业: {{replace_hash(user.good_field)}}
+                    </div>
+                </div>
+                <div class="skill-tag">
+                    <div class="industry">
+                        <div class="col-cx-3 pull-left" ng-repeat="tag in user.WorkingSceneLabels">
+                            <div class="tags">
+                                <div class="tag highlight">{{tag.working_scene+"x"+tag.working_scene_label}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-intention text-center">
+                    <span>工作意向: {{replace_hash(user.job_property)}}</span>
+                </div>
+                <div class="basic-content-item text-center">
+                    日薪: {{user.pay_day|currency:"￥"}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail">
+        <div class="basic-info">
+            <div class="detail-header modify font-big">
+                <span>教育经历</span>
+                <div class="icon icon-basicedu pull-right"></div>
+            </div>
+            <div class="exprience-content">
+                <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserEduExperiences">
+                    <div class="circle"><i class="fa fa-circle" aria-hidden="true"></i></div>
+                    <div class="line"></div>
+                    <div class="exprience-time">
+                        <a ng-if="experience.end_time == '至今'">{{experience.end_time}}</a>
+                        <a ng-if="experience.end_time != '至今'">{{experience.end_time}}毕业</a>
+                    </div>
+                    <div class="exprience-school">            
+                        {{experience.school_name}}
+                        <div>
+                            <span class="border-right padding-right">{{experience.education}}</span>
+                            <span class="padding-left">{{experience.profession}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail">
+        <div class="basic-info">
+            <div class="detail-header modify font-big">
+                <span>工作及翻译经验</span>
+                <div class="icon icon-basicwork pull-right"></div>
+            </div>
+            <div class="exprience-content">
+                <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserWorkExperiences">
+                    <div class="circle"><i class="fa fa-circle" aria-hidden="true"></i></div>
+                    <div class="line"></div>
+                    <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}</div>
+                    <div class="exprience-company">
+                        {{experience.position}}
+                        <label>|</label>
+                        {{experience.work_name}}
+                    </div>
+                    <div class="duty">{{experience.duty}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail">
+        <div class="basic-info">
+            <div class="detail-header modify font-big">
+                <span>语言能力及证书</span>
+                <!-- <label class="font-color">(官方认证)</label> -->
+                <div class="icon icon-basicdiploma pull-right"></div>
+            </div>
+            <div class="exprience-content">
+                <div class="exprience-content-wrap">
+                    <div class="diploma" ng-repeat="experience in user.UserIdentitys" ng-if="experience.status == '1'">
+                        {{experience.title}}
+                        <a class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a>
+                        <div class="modify-color" ng-if="experience.status == '0'"><span>(待审核)</span></div>
+                        <div class="modify-color" ng-if="experience.status == '1'"><span>(审核通过)</span></div>
+                        <div class="modify-color" ng-if="experience.status == '2'"><span>(重新认证)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail">
+        <div class="basic-inner">
+            <!-- <a class="detail-header" ng-href="#/schedule_preview?id={{user.user_id}}">
+                <span>可预约日期</span>
+                <div class="icon icon-basicdate pull-right"></div>
+            </a> -->
+            <a class="detail-header font-big" ng-click="cache_and_go('choice_time','choice_time')">
+                <span>可预约日期</span>
+                <div class="icon icon-basicdate pull-right"></div>
+            </a>
+        </div>
+    </div>
+    <div class="detail" ng-if="comments.length>0">
+        <div class="basic-info font-big">
+            <div class="detail-header modify font-big">
+                <span>客户评价</span>
+                <label><b>{{total_score}}</b> / 5</label>
+                <div class="icon icon-basicevaluate pull-right"></div>
+            </div>
+            <div class="exprience-content">
+                <div class="exprience-content-wrap">
+                    <div class="evaluate" ng-repeat="comment in comments">
+                        <div class="evaluate-item">
+                            <b class="font-color">{{comment.comment_name}}</b>
+                            <b class="pull-right font-color" style="font-size:14px">{{comment.post_date}}</b>
+                        </div>
+                        <div class="evaluate-item">
+                            <i class="fa fa-star" ng-if="comment.comment_star>0" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>1" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>2" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>3" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>4" aria-hidden="true"></i>
+                        </div>
+                        <div class="evaluate-item">
+                            {{comment.note}}
+                        </div>
+                        <div class="evaluate-item" style="font-size: 14px;">
+                            <div class="icon icon-basiczan" ng-if="comment.tongue == 1"></div>
+                            <span ng-if="comment.tongue == 1">语言能力</span>
+                            <div class="icon icon-basiczan" ng-if="comment.service == 1"></div>
+                            <span ng-if="comment.service == 1">服务态度</span>
+                            <div class="icon icon-basiczan" ng-if="comment.profession == 1"></div>
+                            <span ng-if="comment.profession == 1">专业水平</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="detail">
+    <a class="basic-backgroup" ng-click="go()" ng-if="user.status == '1'">
+        <div class="btn btn-block btn-primary">在线预约</div>
+    </a>
+</div>
+<div class="wrap">
+    <div class="other">
+        <div class="other-title text-primary">
+            其他服务
+        </div>
+        <div class="other-content justified">
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group11"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">签证WiFi</span>
+            </a>
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group12"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">包车租车</span>
+            </a>
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group13" ng-class="{'active':active=='index'}"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">接送机</span>
+            </a>
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group14" ng-class="{'active':active=='index'}"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">展会预订</span>
+            </a>
+        </div>
+    </div>
+</div>

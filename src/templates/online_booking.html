@@ -1,0 +1,114 @@
+<pagetitle title="'在线预约'"></pagetitle>
+<form name="bookingForm" ng-submit="ajaxForm()">
+    <div class="wrap">
+        <div class="booking">
+            <div class="booking-person">
+                <div class="booking-header text-center">
+                    <span>{{input.city || user.city}}译员</span>
+                </div>
+                <div class="booking-content text-center">
+                    {{input.language.from || user.mother_language}} - {{input.language.to || user.first_language}} <span>.</span>&nbsp{{input.sex || user.sex}}
+                </div>
+                <div class="booking-content text-center" ng-click="cache_and_go('related_industry','industry')">
+                    {{replace_hash(input.industry) ||"请选择行业/领域"}} &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+                <div class="booking-container text-center" ng-click="cache_and_go('choice_time','choice_time')">
+                    {{input.schedule_from}}
+                    <span>开始</span> - {{input.schedule_to||"请选择"}}
+                    <span>结束</span>&nbsp
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <div class="booking-work">
+                <div class="input-group">
+                    <div class="input-item padding-xs-left" ng-href="#/choice_language">
+                        <div class="icon icon-content"></div>
+                        <div class="text-modify padding-area modify font-big"><span class="font-color">具体工作内容</span></div>
+                    </div>
+                </div>
+                <div class="booking-content">
+                    <textarea class="full-width" name="work_content" ng-model="input.work_content" placeholder="请简单描述工作内容" required cols="30" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <div class="booking-work">
+                <div class="input-group">
+                    <div class="input-item padding-xs-left" ng-href="#/choice_language">
+                        <div class="icon icon-content"></div>
+                        <div class="text-modify padding-area modify font-big"><span class="font-color">对翻译者的其他要求</span></div>
+                    </div>
+                </div>
+                <div class="booking-content">
+                    <textarea class="full-width" name="other_require" ng-model="input.other_require" placeholder="请简单描述其他要求" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <div class="booking-contact">
+                <div class="title text-center">请留下您的信息，以便联系您</div>
+                <div class="contact-group">
+                    <div class="contact-item padding modify">
+                        <div class="name">姓名:</div>
+                        <input type="text" class="full-width" name="nickname" ng-model="input.nickname" placeholder="请输入姓名" required>
+                        <div class="woman" ng-class="{'highlight':input.sex == '女'}" ng-click="select_gender('女')">女士</div>
+                        <div class="man" ng-class="{'highlight':input.sex == '男'}" ng-click="select_gender('男')">先生</div>
+                    </div>
+                    <div class="contact-item padding-lg-left modify">
+                        <div class="name">公司名(如有):</div>
+                        <input type="text" name="company" ng-model="input.company" placeholder="请输入公司名称" class="full-width">
+                    </div>
+                    <div class="contact-item padding-both modify">
+                        <div class="name" ng-click="cache_and_go('country_code','country_code')">
+                            {{input.country_code.code}}
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
+                        <input type="tel" class="full-width" name="telephone" ng-model="input.telephone" placeholder="请输入手机号" required>
+                    </div>
+                    <div class="contact-item padding-both modify">
+                        <div class="name">验证码:</div>
+                        <input type="tel" class="full-width" name="smscode" ng-model="input.smscode" placeholder="请输入验证码" required>
+                        <countdown class="sms-code" countdown="countdown" ng-class="{'color-primary':countdown.message!='获取验证码'}" countdown-disabled="bookingForm.telephone.$invalid">{{countdown.message}}</countdown>
+                    </div>
+                    <div class="contact-item padding-xs-left modify">
+                        <div class="name">微信号:</div>
+                        <input class="full-width" style="" name="wechat" ng-model="input.wechat" placeholder="请输入微信号">
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-title">如果译员不能接单</div>
+                        <div class="contact-item-content" ng-click="check('1')">
+                            <i class="fa" ng-class="{'fa-check-square':input.check == '1','fa-square-o':input.check != '1'}" aria-hidden="true"></i>系统自动匹配其他相符译员</div>
+                        <div class="contact-item-content" ng-click="check('2')">
+                            <i class="fa" ng-class="{'fa-check-square':input.check == '2','fa-square-o':input.check != '2'}" aria-hidden="true"></i>取消订单并退款</div>
+                        <input type="hidden" name="check" ng-model="input.check" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <div class="policy">
+                <div class="policy-content" ng-click="is_agree()">
+                    <i class="fa fa-square-o" ng-class="{'fa-check-square':agree}" aria-hidden="true"></i>请同意<a href="http://mp.weixin.qq.com/s?__biz=MzAxOTc0MDI4MQ==&mid=502947984&idx=1&sn=f7c9605f3102cb9b9f7fa5bc032d4d3a&scene=19#wechat_redirect">《用户协议》</a>
+                </div>
+                <div class="policy-content">
+                    译员接单后您会收到联系方式
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pay">
+        <div class="col-ms-2 pull-left">
+            <div class="total">
+                <span>{{input.schedule_total}}天</span>
+                <span>总共<label>{{get_total_money(user.pay_day) ||"0"}}</label>元</span>
+            </div>
+        </div>
+        <div class="col-ms-2 pull-left">
+            <button type="submit" class="btn btn-primary topay text-center full-width">
+                去支付
+            </button>
+        </div>
+    </div>
+</form>

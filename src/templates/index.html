@@ -1,0 +1,93 @@
+<pagetitle title="'悠译翻译服务平台'"></pagetitle>
+<form name="searchForm" ng-submit="ajaxForm()">
+    <div class="wrap">
+        <div class="input-group">
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_city','city')">
+                <div class="icon icon-location"></div>
+                <div class="text-modify padding-area modify">{{input.city}}</div>
+                <input type="hidden" ng-model="input.city" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_language','language')">
+                <div class="icon icon-language"></div>
+                <div class="text-modify padding-area modify">{{input.language.from}} <span ng-class="{'color-gray':input.language.to != ''}"> - {{input.language.to||"请选择"}}</span></div>
+                <input type="hidden" ng-model="input.language.from" required>
+                <input type="hidden" ng-model="input.language.to" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('scenes','scenes')">
+                <div class="icon icon-star"></div>
+                <div class="text-modify padding-area modify ">
+                    <span ng-class="{'color-gray':input.scenes!= ''}">{{replace_hash(input.scenes)||"使用场景"}}</span>
+                </div>
+                <input type="hidden" ng-model="input.scenes" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_time','choice_time')">
+                <div class="icon icon-date"></div>
+                <div class="text-modify padding-area modify " ng-if="!input.schedule_from"><span>请选择</span></div>
+                <div class="text-modify padding-area modify" ng-if="input.schedule_from">{{input.schedule_from||"请选择"}}<small> 开始 </small> - {{input.schedule_to||"请选择"}}<small> 结束 </small><small ng-if="input.schedule_from!=''&&input.schedule_to!=''">(共{{input.schedule_total}}天)</small></div>
+                <input type="hidden" ng-model="input.schedule_from" required>
+                <input type="hidden" ng-model="input.schedule_to" required>
+                <input type="hidden" ng-model="input.schedule_total" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('related_industry','industry')">
+                <div class="icon icon-industry"></div>
+                <div class="text-modify padding-area modify "><span ng-class="{'color-gray':input.industry!= ''}">{{replace_hash(input.industry)||"涉及行业/领域"}}</span></div>
+                <input type="hidden" ng-model="input.industry" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right">
+                <div class="icon icon-gender"></div>
+                <div class="text-modify padding-area"><span ng-class="{'highlight':input.sex=='不限'}" ng-click="select_gender('不限')">不限</span> &nbsp&nbsp<span ng-class="{'highlight':input.sex=='男'}" ng-click="select_gender('男')">男</span>&nbsp&nbsp <span ng-class="{'highlight':input.sex=='女'}" ng-click="select_gender('女')">女</span></div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="mind">
+            <div class="mind-title">
+                注意:
+            </div>
+            <div class="mind-content">
+                <small>1. 工作时长每日最多为8小时，超出的每小时按原1小时150%另算，不足1小时按1小时计算；</small>
+            </div>
+            <div class="mind-content">
+                <small>2. 正常工作时间在9:00-18:00之间，非以上时段工作，译员可线下要求价格上浮10%－50%；</small>
+            </div>
+            <div class="mind-content">
+                <small>3. 译员服务期间产生的交通、食宿等费用由客户负责；</small>
+            </div>
+            <div class="mind-content">
+                <small>4. 为保证服务质量，请客户提供背景材料以便准备；专业程度高而需要大量时间进行事前准备的，译员可与客户协商线下加收准备时段费用，参考日薪计算。</small>
+            </div>
+            <div class="mind-content">
+                <small>5. 会议同传按小时收费，需客服为您安排。</small>
+            </div>
+        </div>
+    </div>
+    <div class="wrap text-center">
+        <button class="btn btn-lg btn-primary" ng-disabled="searchForm.$invalid">开始预约</button>
+    </div>
+</form>
+<div class="wrap">
+    <div class="other">
+        <div class="other-title text-primary">
+            其他服务
+        </div>
+        <div class="other-content justified">
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group11"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">签证WiFi</span>
+            </a>
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group12"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">包车租车</span>
+            </a>
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group13" ng-class="{'active':active=='index'}"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">接送机</span>
+            </a>
+            <a class="other-item" href="http://www.uelives.com:8080/%E5%95%86%E6%97%85%E5%B1%95%E4%BC%9A%E6%9C%8D%E5%8A%A1%E6%9F%A5%E8%AF%A2/">
+                <i class="icon icon-Group14" ng-class="{'active':active=='index'}"></i>
+                <span class="block" ng-class="{'text-primary':active=='index'}">展会预订</span>
+            </a>
+        </div>
+    </div>
+</div>
