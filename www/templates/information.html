@@ -13,6 +13,9 @@
         {{info.summary}}
     </div>
 </div>
-<div class="wrap">
+<div class="wrap" ng-if="information.length > 0 && !no_more">
     <span class="btn btn-primary btn-lg full-width" ng-click="loadMore()">{{page.message}}</span>
+</div>
+<div class="wrap text-center" ng-if="information.length ==0">
+    <span>暂无文章</span>
 </div>

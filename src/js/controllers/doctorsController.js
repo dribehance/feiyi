@@ -1,4 +1,4 @@
-angular.module("Feiyi").controller("doctorsController", function($scope, $filter, $location, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Feiyi").controller("doctorsController", function($scope, $filter, $location, $routeParams, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	if (localStorageService.get("search_cache")) {
 		$scope.input = angular.extend({}, localStorageService.get("search_cache"));
@@ -23,7 +23,9 @@ angular.module("Feiyi").controller("doctorsController", function($scope, $filter
 			$scope.input.type = 3;
 		}
 	});
-	$scope.check_doctor = function(doctor_id) {
+	$scope.check_doctor = function(doctor_id, event) {
+		event.stopPropagation();
+		event.preventDefault();
 		$scope.input.check_doctor_id = doctor_id;
 		if ($scope.input.check_doctor_id == 0) {
 			$scope.input.type = 2
@@ -49,7 +51,9 @@ angular.module("Feiyi").controller("doctorsController", function($scope, $filter
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				$location.path("payment").search("order_id", data.orders_id);
+				weixinServices.prepare_pay({
+					order_id: data.orders_id
+				})
 			} else {
 				errorServices.autoHide(data.message);
 			}

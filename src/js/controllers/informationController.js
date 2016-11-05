@@ -8,12 +8,13 @@ angular.module("Feiyi").controller("informationController", function($scope, $lo
 		$scope.tab_item = type;
 		$scope.page = {
 			pn: 1,
-			page_size: 1,
+			page_size: 10,
 			message: "点击加载更多",
 			type: type
 		}
 		$scope.no_more = false;
-		$scope.loadMore(true);
+		$scope.information = [];
+		$scope.loadMore();
 	}
 	$scope.go = function(id) {
 		$location.path("information_detail").search("id", id)
@@ -21,7 +22,7 @@ angular.module("Feiyi").controller("informationController", function($scope, $lo
 	$scope.information = [];
 	$scope.page = {
 		pn: 1,
-		page_size: 1,
+		page_size: 10,
 		message: "点击加载更多",
 		type: 1
 	}
@@ -35,9 +36,6 @@ angular.module("Feiyi").controller("informationController", function($scope, $lo
 			toastServices.hide();
 			$scope.page.message = "点击加载更多";
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				if (type) {
-					$scope.information = [];
-				}
 				$scope.information = $scope.information.concat(data.Result.NewsList.list);
 				$scope.no_more = $scope.information.length == data.Result.NewsList.totalRow ? true : false;
 			} else {

@@ -48,7 +48,7 @@ angular.module("Feiyi").controller("ordersController", function($scope, $routePa
 	$scope.loadMore();
 	$scope.goto_pay = function(order_id) {
 		weixinServices.prepare_pay({
-			order_id: data.orders_id
+			order_id: order_id
 		})
 	}
 })

@@ -23,7 +23,6 @@ angular.module("Feiyi").constant("config", {
 		"order",
 		"information",
 		"information_detail",
-		"payment",
 		"signin",
 	]
 });

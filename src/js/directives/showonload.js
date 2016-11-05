@@ -5,7 +5,6 @@ angular.module("Feiyi").directive('showOnLoaded', function() {
 				"visibility": "hidden"
 			})
 			element.bind('load', function() {
-				console.log("loaded")
 				var rate = parseFloat(scope.$eval($(element).parent().attr("data-rate")));
 				if (!rate) {
 					console.log("unexpect rate")

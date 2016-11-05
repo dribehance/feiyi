@@ -10,7 +10,7 @@
             <span class="doctor-name">{{doctor.name}}</span> <span class="doctor-title">{{doctor.doctor_level}}</span>
             <div>{{doctor.department}} {{doctor.technical_title}}</div>
             <div class="text-ellipsis">{{doctor.hospital_name}}</div>
-            <div class="doctor-action" ng-click="check_doctor(doctor.doctor_id)">
+            <div class="doctor-action" ng-click="check_doctor(doctor.doctor_id,$event)">
                 <i class="checkbox" ng-class="{'active':input.check_doctor_id==doctor.doctor_id}"></i>
                 <div class="text-center">约TA</div>
             </div>
@@ -19,7 +19,7 @@
             擅长：{{doctor.good_at}}
         </div>
     </div>
-    <div ng-click="check_doctor(0)">
+    <div ng-click="check_doctor(0,$event)">
         <i class="checkbox pull-left" ng-class="{'active':input.check_doctor_id=='0'}" style="margin-right: 5px"></i> 没有合适的，联系在线客服，为我私人安排。
     </div>
     <span class="booking-btn" ng-click="booking()">预约名医</span>

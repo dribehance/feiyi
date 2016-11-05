@@ -56,4 +56,7 @@
     <div class="text-center wrap" ng-if="!no_more">
         <span class="btn btn-primary" ng-click="loadMore()">{{page.message}}</span>
     </div>
+    <div class="text-center wrap" ng-if="comments.length == 0">
+        <span>暂无评价</span>
+    </div>
 </div>

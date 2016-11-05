@@ -55,7 +55,7 @@
         </div>
     </div>
 </div>
-<div class="wrap text-center" ng-if="!no_more">
+<div class="wrap text-center" ng-if="orders.length>0 && !no_more">
     <span class="btn btn-primary" ng-click="loadMore()">{{page.message}}</span>
 </div>
 <div class="wrap text-center" ng-if="orders.length == 0">
