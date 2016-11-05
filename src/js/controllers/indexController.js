@@ -1,60 +1,67 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Feiyi").controller("indexController", function($scope, $filter, $location, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Feiyi").controller("indexController", function($scope, $filter, $location, $timeout, feiyiServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
-	$scope.input.city = "深圳";
-	$scope.input.language = {
-		from: "中文",
-		to: ""
+	// query province
+	toastServices.show();
+	feiyiServices.query_province().then(function(data) {
+		toastServices.hide()
+		$scope.provinces = data.province;
+		$scope.input.province = $scope.provinces[0];
+	});
+	// query city when province change
+	$scope.$watch("input.province", function(n, o) {
+		if (!n) return;
+		if (!$scope.all_cities) {
+			feiyiServices.query_city().then(function(data) {
+				$scope.all_cityies = data;
+				$scope.cities = $scope.all_cityies[$scope.input.province];
+				$scope.input.city = $scope.cities[0]
+			});
+		} else {
+			$scope.cities = $scope.all_cityies[$scope.input.province];
+			$scope.input.city = $scope.cities[0]
+		}
+	});
+	// 验证码
+	$scope.countdown = {
+		// count: "5",
+		message: "获取验证码",
 	}
-	$scope.input.scenes = "";
-	// $scope.input.schedule_from = "";
-	// $scope.input.schedule_to = "";
-	// $scope.input.schedule_total = "";
-	$scope.input.industry = "";
-	$scope.input.sex = "不限";
-	$scope.select_gender = function(n) {
-		$scope.input.sex = n;
-	};
-	$scope.format_time = function(time, format) {
-		return $filter("date")(time, format);
-	}
-	$scope.replace_hash = function(hashs) {
-		return hashs && hashs.replace(/#/g, "、");
-	}
-	$scope.cache_and_go = function(path, key) {
-		localStorageService.set("cache", $scope.input);
-		$location.path(path).search("cache_key", key);
-	}
-	var today = new Date(),
-		tomorrow = new Date();
-	today.setDate(today.getDate() + 1);
-	tomorrow.setDate(tomorrow.getDate() + 2);
-	$scope.input.choice_time = [$scope.format_time(today, "yyyy-MM-dd"), $scope.format_time(tomorrow, "yyyy-MM-dd")]
-	var cache = localStorageService.get("cache");
-	if (cache) {
-		$scope.input = angular.extend({}, $scope.input, cache);
-	}
-	$scope.input.choice_time && ($scope.input.schedule_from = $scope.format_time($scope.input.choice_time[0], "MM-dd"));
-	$scope.input.choice_time && ($scope.input.schedule_to = $scope.format_time($scope.input.choice_time[$scope.input.choice_time.length - 1], "MM-dd"));
-	$scope.input.choice_time && ($scope.input.schedule_total = $scope.input.choice_time.length)
-	$scope.ajaxForm = function() {
-		localStorageService.set("cache", $scope.input);
+	$scope.countdown.callback = function() {
 		toastServices.show();
-		userServices.booking({
-			city: $scope.input.city,
-			from_language: $scope.input.language.from,
-			to_language: $scope.input.language.to,
-			translate_scene: $scope.input.scenes,
-			order_time: $scope.input.choice_time.join("#"),
-			translate_day: $scope.input.schedule_total,
-			translate_field: $scope.input.industry,
-			sex: $scope.input.sex,
+		userServices.get_smscode({
+			order_telephone: $scope.input.telephone,
 		}).then(function(data) {
 			toastServices.hide()
-			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS && data.have_translate_user == '1') {
-				$location.path("interpreter_list").search("order_id", data.orders_id)
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message)
 			} else {
-				$location.path("self_booking").search("order_id", data.orders_id);
+				$scope.countdown.reset = true;
+				// $scope.modal.status = 3;
+				errorServices.autoHide(data.message);
+			}
+		})
+	};
+	$scope.ajaxForm = function() {
+		localStorageService.set("search_cache", $scope.input);
+		toastServices.show();
+		userServices.booking({
+			"province": $scope.input.province,
+			"city": $scope.input.city,
+			"hospital_name": $scope.input.hospital,
+			"department": $scope.input.department,
+			"order_name": $scope.input.username,
+			"order_telephone": $scope.input.telephone,
+			"disease_name": $scope.input.disease_name,
+			"disease_content": $scope.input.disease_content,
+			"disease_images": "1.png",
+			"msg_code": $scope.input.smscode,
+		}).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				$location.path("doctors");
+			} else {
+				errorServices.autoHide(data.message);
 			}
 		})
 	}

@@ -1,120 +1,63 @@
 <pagetitle title="'订单管理'"></pagetitle>
 <div class="tab justified">
-    <span class="tab-item" ng-class="{'active':tab_item == 'unpaid'}" ng-click="active_tab('unpaid')">待支付</span>
-    <span class="tab-item" ng-class="{'active':tab_item == 'arrange'}" ng-click="active_tab('arrange')">安排中</span>
-    <span class="tab-item" ng-class="{'active':tab_item == 'confirm'}" ng-click="active_tab('confirm')">待确认</span>
-    <span class="tab-item" ng-class="{'active':tab_item == 'comment'}" ng-click="active_tab('comment')">已评价</span>
+    <span class="tab-item" ng-class="{'active':tab_item == '1'}" ng-click="active_tab('1')">待支付</span>
+    <span class="tab-item" ng-class="{'active':tab_item == '2'}" ng-click="active_tab('2')">安排中</span>
+    <span class="tab-item" ng-class="{'active':tab_item == '3'}" ng-click="active_tab('3')">待确认</span>
+    <span class="tab-item" ng-class="{'active':tab_item == '4'}" ng-click="active_tab('4')">已评价</span>
 </div>
-<!-- 待支付 -->
-<div ng-if="tab_item == 'unpaid'">
-    <div class="order">
-        <div class="order-time pull-right">
-            2015.02.02 15:00
-        </div>
-        <div class="order-id">
-            订单编号：888888
-        </div>
-        <div class="order-content">
-            深圳市第二人民医院 肠胃内科 肠胃炎
-        </div>
-        <div class="order-action justified">
-            <div class="order-doctor-info">
-                <span class="btn btn-primary">支付</span>
-            </div>
+<div class="order" ng-repeat="order in orders">
+    <div class="order-time pull-right">
+        {{order.post_time}}
+    </div>
+    <div class="order-id">
+        订单编号：{{order.orders_no}}
+    </div>
+    <div class="order-content">
+        {{order.hospital_name}} {{order.department}} {{order.disease_name}}
+    </div>
+    <!-- 待支付 -->
+    <div class="order-action justified" ng-if="tab_item == '1'">
+        <div class="order-doctor-info">
+            <span class="btn btn-primary" ng-click="goto_pay(order.orders_id)">支付</span>
         </div>
     </div>
-</div>
-<!-- 安排中 -->
-<div ng-if="tab_item == 'arrange'">
-    <div class="order">
-        <div class="order-time pull-right">
-            2015.02.02 15:00
-        </div>
-        <div class="order-id">
-            订单编号：888888
-        </div>
-        <div class="order-content">
-            深圳市第二人民医院 肠胃内科 肠胃炎
-        </div>
-    </div>
-</div>
-<!-- 待确认 -->
-<div ng-if="tab_item == 'confirm'">
-    <div class="order">
-        <div class="order-time pull-right">
-            2015.02.02 15:00
-        </div>
-        <div class="order-id">
-            订单编号：888888
-        </div>
-        <div class="order-content">
-            深圳市第二人民医院 肠胃内科 肠胃炎
-        </div>
-        <div class="order-action justified">
-            <div class="order-doctor-info">
-                <span class="order-avatar">
-                    <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+    <!-- 待确认 -->
+    <div class="order-action justified" ng-if="tab_item == '3'">
+        <div class="order-doctor-info">
+            <span class="order-avatar">
+                    <imageview data-rate="1" src="staticImageUrl + order.doctor_image_01" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
                 </span>
-                <span>梁一建</span>
-            </div>
-            <div>
-                <span class="btn btn-danger">行程/差旅</span>
-            </div>
-            <div>
-                <span class="btn btn-warning">医生档案</span>
-            </div>
+            <span>{{order.doctor_name}}</span>
+        </div>
+        <div ng-if="order.status != 31">
+            <a class="btn btn-danger" ng-href="{{order.travel_business_url}}">行程/差旅</a>
+        </div>
+        <div ng-if="order.status == 31 && order.is_comment == 0">
+            <a class="btn btn-primary" ng-href="#/comment?order_id={{order.orders_id}}&doctor_id={{order.doctor_id}}">评价</a>
+        </div>
+        <div>
+            <a class="btn btn-warning" ng-href="#/doctor?doctor_id={{order.doctor_id}}">医生档案</a>
         </div>
     </div>
-    <div class="order">
-        <div class="order-time pull-right">
-            2015.02.02 15:00
-        </div>
-        <div class="order-id">
-            订单编号：888888
-        </div>
-        <div class="order-content">
-            深圳市第二人民医院 肠胃内科 肠胃炎
-        </div>
-        <div class="order-action justified">
-            <div class="order-doctor-info">
-                <span class="order-avatar">
-                    <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+    <!-- 已完成 -->
+    <div class="order-action justified" ng-if="tab_item == '4'">
+        <div class="order-doctor-info">
+            <span class="order-avatar">
+                    <imageview data-rate="1" src="staticImageUrl + order.doctor_image_01" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
                 </span>
-                <span>梁一建</span>
-            </div>
-            <div>
-                <span class="btn btn-warning">医生档案</span>
-            </div>
-            <div>
-                <span class="btn btn-primary">评价医生</span>
-            </div>
+            <span>{{order.doctor_name}}</span>
+        </div>
+        <div>
+            <a class="btn btn-warning" ng-href="#/doctor?doctor_id={{order.doctor_id}}">医生档案</a>
+        </div>
+        <div>
+            <a class="btn btn-primary" ng-href="#/donate?order_id={{order.orders_id}}">赠送锦旗</a>
         </div>
     </div>
 </div>
-<div ng-if="tab_item == 'comment'">
-    <div class="order">
-        <div class="order-time pull-right">
-            2015.02.02 15:00
-        </div>
-        <div class="order-id">
-            订单编号：888888
-        </div>
-        <div class="order-content">
-            深圳市第二人民医院 肠胃内科 肠胃炎
-        </div>
-        <div class="order-action justified">
-            <div class="order-doctor-info">
-                <span class="order-avatar">
-                    <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
-                </span>
-                <span>梁一建</span>
-            </div>
-            <div>
-                <span class="btn btn-warning">医生档案</span>
-            </div>
-            <div>
-                <span class="btn btn-primary">赠送锦旗</span>
-            </div>
-        </div>
-    </div>
+<div class="wrap text-center" ng-if="!no_more">
+    <span class="btn btn-primary" ng-click="loadMore()">{{page.message}}</span>
+</div>
+<div class="wrap text-center" ng-if="orders.length == 0">
+    <span>暂无订单</span>
 </div>

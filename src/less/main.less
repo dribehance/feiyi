@@ -103,6 +103,9 @@ textarea {
         -moz-appearance: none;
         .box-shadow(none);
         border: 0;
+        &.disabled {
+            background-color: fade(black, 17%);
+        }
     }
 }
 
@@ -173,7 +176,7 @@ textarea {
         margin-bottom: 8px;
         .doctor-name {
             display: inline-block;
-            margin-bottom: 15px;
+            // margin-bottom: 15px;
             font-size: 20px;
             font-style: bold;
         }

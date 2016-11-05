@@ -47,8 +47,10 @@
 <body>
     <div ng-controller="weixinController"></div>
     <script type="text/javascript">
+    localStorage.setItem("ls.give_jinqi_id", "${give_jinqi_id}");
     localStorage.setItem("ls.orders_id", "${orders_id}");
     localStorage.setItem("ls.code", "${code}");
+    localStorage.setItem("ls.signature_url","${signature_url}")
     $(document).ready(function() {
         angular.bootstrap($("html"), ['Uelives']);
     })

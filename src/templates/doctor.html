@@ -1,42 +1,59 @@
 <pagetitle title="'名医详情'"></pagetitle>
 <div class="wrap bg-primary text-center doctor-case">
-    <div class="doctor-name">梁一键</div>
+    <h3 class="doctor-name">{{doctor.name}}</h3>
     <div class="doctor-avatar">
-        <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+        <imageview data-rate="1" src="staticImageUrl+doctor.images_01" center-only err="'../images/avatar.png'" class="doctor-avatar"></imageview>
     </div>
-    <div>骨科 主任医师</div>
-    <div>深圳市第二人民医院</div>
+    <div>{{doctor.department}} {{doctor.technical_title}}</div>
+    <div>{{doctor.hospital_name}}</div>
 </div>
 <div class="tab justified">
     <span class="tab-item" ng-class="{'active':tab_item == 'doctor_info'}" ng-click="active_tab('doctor_info')">医生信息</span>
-    <span class="tab-item" ng-class="{'active':tab_item == 'doctor_comment'}" ng-click="active_tab('doctor_comment')">用户评价（2）</span>
+    <span class="tab-item" ng-class="{'active':tab_item == 'doctor_comment'}" ng-click="active_tab('doctor_comment')">用户评价（{{total_comment_amount}}）</span>
 </div>
 <div ng-if="tab_item == 'doctor_info'">
     <div class="wrap">
         <span class="text-primary">擅长</span>
         <p>
-            脊柱疾病及关节疾病的诊断和治疗。尤其是颈椎疾病和颈椎外伤，脊柱侧弯的手术矫正，脊柱退变所致疾病的非融合固定手术，以及微创行肩、肘、髋、膝等人工关节置换术以治疗各种关节疾病，并擅长腰椎间盘镜行各种腰椎微创手术。
+            {{doctor.good_at}}
         </p>
     </div>
     <div class="line"></div>
     <div class="wrap">
-        <span class="text-primary">擅长</span>
+        <span class="text-primary">推荐理由</span>
         <p>
-            脊柱疾病及关节疾病的诊断和治疗。尤其是颈椎疾病和颈椎外伤，脊柱侧弯的手术矫正，脊柱退变所致疾病的非融合固定手术，以及微创行肩、肘、髋、膝等人工关节置换术以治疗各种关节疾病，并擅长腰椎间盘镜行各种腰椎微创手术。
+            {{doctor.recommended_reason}}
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="wrap">
+        <span class="text-primary">荣誉</span>
+        <p>
+            {{doctor.honor}}
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="wrap">
+        <span class="text-primary">执业经历</span>
+        <p>
+            {{doctor.practice_experience}}
         </p>
     </div>
     <div class="line"></div>
 </div>
 <div ng-if="tab_item == 'doctor_comment'">
     <div class="comments">
-        <div class="comment">
+        <div class="comment" ng-repeat="comment in comments">
             <div class="comment-avatar pull-left">
-                <imageview data-rate="1" src="'../images/avatar.png'" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+                <imageview data-rate="1" src="staticImageUrl + comment.user_images_01" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
             </div>
-            <div class="comment-name">便利店小王子</div>
+            <div class="comment-name">{{comment.comment_name}}</div>
             <div class="comment-content clearfix">
-                脊柱疾病及关节疾病的诊断和治疗。尤其是颈椎疾病和颈椎外伤，脊柱侧弯的手术矫正，脊柱退变所致疾病的非融合固定手术，以及微创行肩、肘、髋、膝等人工关节置换术以治疗各种关节疾病，并擅长腰椎间盘镜行各种腰椎微创手术。
+                {{comment.note}}
             </div>
         </div>
+    </div>
+    <div class="text-center wrap" ng-if="!no_more">
+        <span class="btn btn-primary" ng-click="loadMore()">{{page.message}}</span>
     </div>
 </div>

@@ -4,11 +4,8 @@ angular.module("Feiyi").controller("commentController", function($scope, $rootSc
 		toastServices.show();
 		userServices.comment({
 			orders_id: $routeParams.order_id,
-			comment_star: $scope.input.star,
+			doctor_id: $routeParams.doctor_id,
 			note: $scope.input.note,
-			service: $scope.input.service,
-			profession: $scope.input.profession,
-			tongue: $scope.input.tongue,
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {

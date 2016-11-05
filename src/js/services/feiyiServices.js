@@ -7,5 +7,11 @@ angular.module("Feiyi").factory("feiyiServices", function($rootScope, $http, api
 		query_information_by_id: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/NewsManage/newsDetail",
 		})),
+		query_province: apiServices._get(angular.extend({}, {
+			url: "city/province.json",
+		})),
+		query_city: apiServices._get(angular.extend({}, {
+			url: "city/city.json",
+		})),
 	}
 });

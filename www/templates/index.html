@@ -6,16 +6,12 @@
         <div class="grid">
             <div class="grid-left">
                 <div class="booking-select required">
-                    <select name="province" ng-model="input.province" required>
-                        <option value="">请选择</option>
-                    </select>
+                    <select name="province" ng-model="input.province" required ng-options="province as province for province in provinces"></select>
                 </div>
             </div>
             <div class="grid-right">
                 <div class="booking-select required">
-                    <select name="city" ng-model="input.city" required>
-                        <option value="">请选择</option>
-                    </select>
+                    <select name="city" ng-model="input.city" required ng-options="city as city for city in cities"></select>
                 </div>
             </div>
         </div>
@@ -39,21 +35,21 @@
             </div>
             <div class="grid-right">
                 <div class="booking-input">
-                    <button class="smsbtn">获取验证码</button>
+                    <countdown class="smsbtn" countdown="countdown" ng-class="{'color-primary':countdown.message!='获取验证码','disabled':searchForm.telephone.$invalid}" countdown-disabled="searchForm.telephone.$invalid">{{countdown.message}}</countdown>
                 </div>
             </div>
         </div>
-        <div class="booking-input">
-            <input type="text" name="diagnosis" placeholder="疾病诊断（疾病名称）" ng-model="input.diagnosis" required>
+        <div class="booking-input required">
+            <input type="text" name="disease_name" placeholder="疾病诊断（疾病名称）" ng-model="input.disease_name" required>
         </div>
-        <div class="booking-input">
-            <input type="text" name="disease" placeholder="疾病概述" ng-model="input.disease" required>
+        <div class="booking-input required">
+            <input type="text" name="disease_content" placeholder="疾病概述" ng-model="input.disease_content" required>
         </div>
         <p>
             <span class="btn btn-success btn-lg full-width">+ 上传病例或影像资料</span>
         </p>
         <p>
-            <button type="submit" class="btn btn-primary btn-lg full-width">预约名医</button>
+            <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="searchForm.$invalid">预约名医</button>
         </p>
     </form>
 </div>

@@ -9,7 +9,6 @@ angular.module("Feiyi")
 			controller: function($scope, $element, $attrs) {
 				$scope.bg_image = $scope.err || "../images/default.png";
 				$scope.rate = parseFloat($scope.$eval($attrs.rate));
-				console.log($scope.rate)
 				$scope.width = $element.parent().width() || $(window).width();
 				$scope.height = $scope.width / $scope.rate;
 				if (!$scope.rate) {
@@ -70,7 +69,7 @@ angular.module("Feiyi")
 						image_loaded_width = image_loaded.width(),
 						image_loaded_height = image_loaded.height(),
 						actural_rate = parseFloat(image_loaded_width) / parseFloat(image_loaded_height);
-					if (actural_rate < $scope.rate) {
+					if (actural_rate > $scope.rate) {
 						image_loaded.css({
 							"display": "inline-block",
 							"height": "100%",

@@ -129,7 +129,7 @@ angular.module("Feiyi").factory("weixinServices", function($http, $route, $timeo
         query_payment_signature: function(input) {
             return $http({
                 // by dribehance <dribehance.kksdapp.com>
-                url: config.url + "/app/OrdersManage/comfiyPay",
+                url: config.url + input.signature_url,
                 method: "GET",
                 params: angular.extend({}, config.common_params, input)
             }).then(function(data) {

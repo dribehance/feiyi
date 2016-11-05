@@ -4,8 +4,10 @@ angular.module("Feiyi").controller("weixinController", function($scope, $rootSco
 	$rootScope.wx_browser && weixinServices.config().then(function(data) {
 		toastServices.show();
 		weixinServices.query_payment_signature({
+			give_jinqi_id: localStorageService.get("give_jinqi_id"),
 			orders_id: localStorageService.get("orders_id"),
-			code: localStorageService.get("code")
+			code: localStorageService.get("code"),
+			signature_url: localStorageService.get("signature_url"),
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
