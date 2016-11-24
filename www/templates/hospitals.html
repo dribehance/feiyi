@@ -1,0 +1,16 @@
+<pagetitle title="'找名医'"></pagetitle>
+<a href="tel:{{hospital.telephone}}" style="display: block" class="information" ng-repeat="hospital in hospitals">
+    <div class="information-thumbnail">
+        <imageview data-rate="193/114" src="staticImageUrl + hospital.images_01"></imageview>
+    </div>
+    <div class="information-title text-ellipsis">{{hospital.name}}</div>
+    <div class="information-summary">
+        {{hospital.introduce_info}}
+    </div>
+</a>
+<div class="wrap" ng-if="hospitals.length > 0 && !no_more">
+    <span class="btn btn-primary btn-lg full-width" ng-click="loadMore()">{{page.message}}</span>
+</div>
+<div class="wrap text-center" ng-if="hospitals.length ==0" ng-click="back()">
+    <span>暂无相关医院，点击返回</span>
+</div>

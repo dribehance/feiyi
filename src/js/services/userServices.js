@@ -78,5 +78,15 @@ angular.module("Feiyi").factory("userServices", function($rootScope, $http, apiS
 			url: config.url + "/app/OrdersManage/giveJinqi",
 			token: localStorageService.get("token")
 		})),
+		// upload
+		upload: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/OrdersManage/downWeixinImg",
+			token: localStorageService.get("token")
+		})),
+		// query_hospitals
+		query_hospitals: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/Home/hospitalList",
+			token: localStorageService.get("token")
+		})),
 	}
 });

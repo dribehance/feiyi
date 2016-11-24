@@ -1,17 +1,20 @@
-<pagetitle title="'名医预约'"></pagetitle>
+<pagetitle title="'找名医'"></pagetitle>
 <div class="wrap">
     <div class="text-center info">欢迎来到飞医刀， 请详细填写下面预约信息，我们将为您匹配最优名医
     </div>
     <form name="searchForm" ng-submit="ajaxForm()">
+        <div class="booking-select required">
+            <select name="province" ng-model="input.province" required ng-options="province as province.name for province in provinces"></select>
+        </div>
         <div class="grid">
             <div class="grid-left">
                 <div class="booking-select required">
-                    <select name="province" ng-model="input.province" required ng-options="province as province for province in provinces"></select>
+                    <select name="city" ng-model="input.city" required ng-options="city as city.name for city in input.province.city"></select>
                 </div>
             </div>
             <div class="grid-right">
                 <div class="booking-select required">
-                    <select name="city" ng-model="input.city" required ng-options="city as city for city in cities"></select>
+                    <select name="district" ng-model="input.district" required ng-options="district as district.name for district in input.city.district"></select>
                 </div>
             </div>
         </div>
@@ -45,11 +48,12 @@
         <div class="booking-input required">
             <input type="text" name="disease_content" placeholder="疾病概述" ng-model="input.disease_content" required>
         </div>
-        <p>
+        <p ng-click="choose_image()">
             <span class="btn btn-success btn-lg full-width">+ 上传病例或影像资料</span>
         </p>
-        <p>
-            <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="searchForm.$invalid">预约名医</button>
+        <imageview ng-if="input.disease_images" data-rate="1" src="staticImageUrl + input.disease_images" center-only></imageview>
+        <p style="margin-top: 15px">
+            <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="searchForm.$invalid || !input.disease_images">预约名医</button>
         </p>
     </form>
 </div>

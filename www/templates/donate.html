@@ -3,6 +3,6 @@
     <div class="review-item text-center">
         给医生赠送锦旗，表达您的感激之情！
     </div>
-    <textarea class="comment-area" placeholder="请写出您对译员的评价吧~" name="note" ng-model="input.note" required></textarea>
-    <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="commentForm.$invalid">赠送锦旗 - 100元</button>
+    <textarea class="comment-area" placeholder="给医生赠送锦旗，表达您的感激之情！" name="note" ng-model="input.note" required></textarea>
+    <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="commentForm.$invalid">赠送锦旗 - {{donate_money}}元</button>
 </form>

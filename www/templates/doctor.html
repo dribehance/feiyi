@@ -40,12 +40,19 @@
         </p>
     </div>
     <div class="line"></div>
+    <div class="wrap">
+        <span class="text-primary">教育背景</span>
+        <p>
+            {{doctor.teach_info}}
+        </p>
+    </div>
+    <div class="line"></div>
 </div>
 <div ng-if="tab_item == 'doctor_comment'">
     <div class="comments">
         <div class="comment" ng-repeat="comment in comments">
             <div class="comment-avatar pull-left">
-                <imageview data-rate="1" src="staticImageUrl + comment.user_images_01" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
+                <imageview data-rate="1" src="comment.user_images_01" err="'../images/avatar.png'" class="doctor-avatar"></imageview>
             </div>
             <div class="comment-name">{{comment.comment_name}}</div>
             <div class="comment-content clearfix">

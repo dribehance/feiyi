@@ -1,6 +1,6 @@
 angular.module("Feiyi").constant("config", {
-	url: "http://120.76.55.55",
-	imageUrl: "http://120.76.55.55/files/image?name=",
+	url: "http://www.orsynsystem.com",
+	imageUrl: "http://www.orsynsystem.com/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -24,5 +24,7 @@ angular.module("Feiyi").constant("config", {
 		"information",
 		"information_detail",
 		"signin",
+		"hospitals",
+	"hospital_search"
 	]
 });

@@ -20,16 +20,16 @@
         </div>
     </div>
     <div ng-click="check_doctor(0,$event)">
-        <i class="checkbox pull-left" ng-class="{'active':input.check_doctor_id=='0'}" style="margin-right: 5px"></i> 没有合适的，联系在线客服，为我私人安排。
+        <i class="checkbox pull-left" ng-class="{'active':input.check_doctor_id=='0'}" style="margin-right: 5px"></i> 没有合适的，联系客服为我安排名医。
     </div>
     <span class="booking-btn" ng-click="booking()">预约名医</span>
 </div>
 <div class="wrap" ng-if="doctors.length==0">
+        <imageview data-rate="674/896" src="'../images/qrcode.JPG'"></imageview>
     <div class="notfound">
-        <imageview data-rate="209/241" src="'../images/notfound.png'"></imageview>
     </div>
     <p class="text-center">
-        抱歉，暂时无法为您匹配到合适的医生， 但是没有关系哟，你还是可以直接预约， 我们的客服人员会为您私人安排！
+        抱歉，暂时无法为您匹配到合适的医生， 但是没有关系哟，你可以扫描上面的二维码添加客服咨询或者直接拨打下方的客服电话咨询哦！
     </p>
-    <span class="btn btn-primary full-width btn-lg" ng-click="booking()">联系客服为我在私人安排名医</span>
+    <a class="btn btn-primary full-width btn-lg" href="tel:18665818650">联系客服为我安排名医</a>
 </div>

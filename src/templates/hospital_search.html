@@ -1,0 +1,13 @@
+<pagetitle title="'找名医'"></pagetitle>
+<div class="wrap">
+    <div class="text-center info">欢迎来到飞医刀合作医院，输入医院关键字进行搜索
+    </div>
+    <form name="searchForm" ng-submit="ajaxForm()">
+        <div class="booking-input required">
+            <input type="text" name="hospital" placeholder="请输入医院名称" ng-model="input.hospital" required>
+        </div>
+        <p style="margin-top: 15px">
+            <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="searchForm.$invalid">搜索</button>
+        </p>
+    </form>
+</div>

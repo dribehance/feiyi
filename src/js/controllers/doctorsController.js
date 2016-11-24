@@ -5,9 +5,11 @@ angular.module("Feiyi").controller("doctorsController", function($scope, $filter
 	}
 	toastServices.show();
 	userServices.query_doctors({
-		"province": $scope.input.province,
-		"city": $scope.input.city,
+		"province": $scope.input.province.name,
+		"city": $scope.input.city.name,
+		"area": $scope.input.district.name,
 		"hospital_name": $scope.input.hospital,
+		"disease_name": $scope.input.disease_name,
 		"department": $scope.input.department,
 		"order_name": $scope.input.username,
 	}).then(function(data) {
@@ -38,8 +40,9 @@ angular.module("Feiyi").controller("doctorsController", function($scope, $filter
 		toastServices.show();
 		userServices.booking_by_doctory_id({
 			"doctor_id": $scope.input.check_doctor_id || "0",
-			"province": $scope.input.province,
-			"city": $scope.input.city,
+			"province": $scope.input.province.name,
+			"city": $scope.input.city.name,
+			"area": $scope.input.district.name,
 			"hospital_name": $scope.input.hospital,
 			"department": $scope.input.department,
 			"order_name": $scope.input.username,

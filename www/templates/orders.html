@@ -50,8 +50,8 @@
         <div>
             <a class="btn btn-warning" ng-href="#/doctor?doctor_id={{order.doctor_id}}">医生档案</a>
         </div>
-        <div>
-            <a class="btn btn-primary" ng-href="#/donate?order_id={{order.orders_id}}">赠送锦旗</a>
+        <div ng-if="order.is_send_jinqi != 1">
+            <a class="btn btn-primary" ng-href="#/donate?order_id={{order.orders_id}}&donate_money={{give_jinqi_money}}">赠送锦旗</a>
         </div>
     </div>
 </div>

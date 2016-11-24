@@ -1,5 +1,5 @@
 angular.module("Feiyi").controller("ordersController", function($scope, $routeParams, $route, $timeout, $filter, $location, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
-	$scope.tab_item = "1";
+	$scope.tab_item = $routeParams.type || "1";
 	$scope.active_tab = function(tab) {
 		if ($scope.tab_item == tab) {
 			return;
@@ -33,6 +33,7 @@ angular.module("Feiyi").controller("ordersController", function($scope, $routePa
 			toastServices.hide();
 			$scope.page.message = "点击加载更多";
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				$scope.give_jinqi_money = data.give_jinqi_money;
 				$scope.orders = $scope.orders.concat(data.Result.OrderList.list);
 				$scope.no_more = $scope.orders.length == data.Result.OrderList.totalRow ? true : false;
 			} else {

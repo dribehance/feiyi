@@ -1,5 +1,6 @@
 angular.module("Feiyi").controller("donateController", function($scope, $rootScope, $timeout, $routeParams, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
+	$scope.donate_money = $routeParams.donate_money;
 	$scope.ajaxForm = function() {
 		toastServices.show();
 		userServices.donate({

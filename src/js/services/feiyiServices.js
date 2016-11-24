@@ -13,5 +13,9 @@ angular.module("Feiyi").factory("feiyiServices", function($rootScope, $http, api
 		query_city: apiServices._get(angular.extend({}, {
 			url: "city/city.json",
 		})),
+		query_province_city_district: apiServices._get(angular.extend({}, {
+			url: "city/province_city_district.json",
+		})),
+
 	}
 });

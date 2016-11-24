@@ -1,26 +1,15 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Feiyi").controller("indexController", function($scope, $filter, $location, $timeout, feiyiServices, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Feiyi").controller("indexController", function($scope, $filter, $rootScope, $location, $timeout, weixinServices, feiyiServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
+	$rootScope.wx_browser && weixinServices.config();
 	// query province
 	toastServices.show();
-	feiyiServices.query_province().then(function(data) {
+	feiyiServices.query_province_city_district().then(function(data) {
 		toastServices.hide()
 		$scope.provinces = data.province;
 		$scope.input.province = $scope.provinces[0];
-	});
-	// query city when province change
-	$scope.$watch("input.province", function(n, o) {
-		if (!n) return;
-		if (!$scope.all_cities) {
-			feiyiServices.query_city().then(function(data) {
-				$scope.all_cityies = data;
-				$scope.cities = $scope.all_cityies[$scope.input.province];
-				$scope.input.city = $scope.cities[0]
-			});
-		} else {
-			$scope.cities = $scope.all_cityies[$scope.input.province];
-			$scope.input.city = $scope.cities[0]
-		}
+		$scope.input.city = $scope.provinces[0].city[0];
+		$scope.input.district = $scope.provinces[0].city[0].district[0];
 	});
 	// 验证码
 	$scope.countdown = {
@@ -42,19 +31,46 @@ angular.module("Feiyi").controller("indexController", function($scope, $filter, 
 			}
 		})
 	};
+	$scope.choose_image = function() {
+		weixinServices.choose_image({}, function(localIds) {
+			$scope.input.preview_disease_image = localIds[0];
+			$scope.upload_image(localIds[0]);
+		})
+	}
+	$scope.upload_image = function(localId) {
+		weixinServices.upload_image({
+			localId: localId
+		}, function(serverId) {
+			userServices.upload({
+				"mediaId": serverId
+			}).then(function(data) {
+				if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+					$scope.input.disease_images = data.filename;
+				} else {
+					errorServices.autoHide(data.message);
+				}
+			})
+		})
+	}
+	localStorageService.remove("search_cache");
 	$scope.ajaxForm = function() {
+		// if (!$scope.input.disease_images) {
+		// 	errorServices.autoHide("请上传图片");
+		// 	return;
+		// }
 		localStorageService.set("search_cache", $scope.input);
 		toastServices.show();
 		userServices.booking({
-			"province": $scope.input.province,
-			"city": $scope.input.city,
+			"province": $scope.input.province.name,
+			"city": $scope.input.city.name,
+			"area": $scope.input.district.name,
 			"hospital_name": $scope.input.hospital,
 			"department": $scope.input.department,
 			"order_name": $scope.input.username,
 			"order_telephone": $scope.input.telephone,
 			"disease_name": $scope.input.disease_name,
 			"disease_content": $scope.input.disease_content,
-			"disease_images": "1.png",
+			"disease_images": $scope.input.disease_images || "not found",
 			"msg_code": $scope.input.smscode,
 		}).then(function(data) {
 			toastServices.hide()
