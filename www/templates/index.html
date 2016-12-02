@@ -45,13 +45,16 @@
         <div class="booking-input required">
             <input type="text" name="disease_name" placeholder="疾病诊断（疾病名称）" ng-model="input.disease_name" required>
         </div>
-        <div class="booking-input required">
+        <div class="booking-input">
             <input type="text" name="disease_content" placeholder="疾病概述" ng-model="input.disease_content">
         </div>
         <p ng-click="choose_image()">
             <span class="btn btn-success btn-lg full-width">+ 上传病例或影像资料</span>
         </p>
-        <imageview ng-if="input.disease_images" data-rate="1" src="staticImageUrl + input.disease_images" center-only></imageview>
+        <div style="position: relative;" ng-if="input.disease_images">
+            <imageview ng-if="input.disease_images" data-rate="1" src="staticImageUrl + input.disease_images" center-only></imageview>
+            <span class="close" style="position: absolute;right: 0;top: 0;display: inline-block;width:25px;height:25px;vertical-align:middle;text-align:center;border-radius: 100%;background-color: rgba(0,0,0,0.5);color:white" ng-click="remove()">x</span>
+        </div>
         <p style="margin-top: 15px">
             <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="searchForm.$invalid">预约名医</button>
         </p>

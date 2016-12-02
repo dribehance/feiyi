@@ -51,6 +51,10 @@ angular.module("Feiyi").controller("indexController", function($scope, $filter, 
 				}
 			})
 		})
+	};
+	// $scope.input.disease_images = "default.png";
+	$scope.remove = function() {
+		$scope.input.disease_images = "";
 	}
 	localStorageService.remove("search_cache");
 	$scope.ajaxForm = function() {
@@ -70,7 +74,7 @@ angular.module("Feiyi").controller("indexController", function($scope, $filter, 
 			"order_telephone": $scope.input.telephone,
 			"disease_name": $scope.input.disease_name,
 			"disease_content": $scope.input.disease_content,
-			"disease_images": $scope.input.disease_images || "not found",
+			"disease_images": $scope.input.disease_images,
 			"msg_code": $scope.input.smscode,
 		}).then(function(data) {
 			toastServices.hide()
