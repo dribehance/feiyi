@@ -37,6 +37,10 @@ angular.module("Feiyi").controller("doctorsController", function($scope, $filter
 		$location.path("doctor").search("doctor_id", doctor_id);
 	}
 	$scope.booking = function() {
+		if ($scope.input.check_doctor_id == "0") {
+			$scope.doctors = [];
+			return;
+		}
 		toastServices.show();
 		userServices.booking_by_doctory_id({
 			"doctor_id": $scope.input.check_doctor_id || "0",
